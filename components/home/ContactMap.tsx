@@ -1,0 +1,143 @@
+'use client'
+import Image from 'next/image'
+import React, { useState } from 'react'
+import requestForm from '@/public/images/requestForm.png'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import toast from 'react-hot-toast'
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps'
+import api from '@/utils/api'
+
+const schema = yup.object().shape({
+  name: yup.string().required('Введите ваше имя'),
+  email: yup.string().email('Введите корректный email').required('Введите email'),
+  phone: yup
+    .string()
+    .required('Введите телефон')
+    .matches(/^\+?[0-9()\- ]{7,}$/, 'Введите корректный телефон'),
+})
+
+type FormValues = yup.InferType<typeof schema>
+
+function ContactMap() {
+  const [loading, setLoading] = useState(false)
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: yupResolver(schema),
+  })
+
+  const onSubmit = async () => {
+    setLoading(true)
+    try {
+      const response = await api.post('/sendContact', {
+        name: watch('name'),
+        phone: watch('phone'),
+        email: watch('email'),
+      }) as { status: number } & { isSuccess: boolean };
+
+      if (response.isSuccess) {
+        toast.success('Сообщение успешно отправлено!')
+        reset()
+      } else {
+        toast.error('Ошибка при отправке. Попробуйте снова!')
+      }
+    } catch (error) {
+      toast.error('Ошибка при отправке. Попробуйте снова!')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="w-full py-10 md:py-20 xl:py-20 relative overflow-hidden bg-gray-50">
+      <div className="custom_container mx-auto flex flex-col-reverse lg:flex-row items-stretch gap-6 relative z-10">
+        {/* Form Section */}
+        <div className="w-full lg:w-1/2 bg-white bg-opacity-90 p-6 md:p-8 rounded-xl shadow-xl flex flex-col justify-center">
+          <h2 className="text-xl uppercase xl:text-3xl mb-3 leading-tight">
+            Расположение
+          </h2>
+          <p className="text-[15px] max-w-[500px] font-light mt-6 mb-6 leading-relaxed">
+            611 5th Avenue, 8th Floor, New York, NY 10022
+            <br />
+            Tel: 212.940.4843
+          </p>
+          <h2 className="text-xl uppercase xl:text-3xl mb-3 leading-tight">
+            Вы можете связаться с нами
+          </h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Name */}
+            <div className="flex-1 mb-4 relative">
+              <input
+                type="text"
+                placeholder="Ваше имя"
+                {...register('name')}
+                className="w-full border-b border-[#8D8D8D] text-[#8D8D8D] h-[48px] px-4 focus:outline-none"
+              />
+              {errors.name && <p className="text-red-500 text-sm mt-1 absolute">{errors.name.message}</p>}
+            </div>
+            {/* Email */}
+            <div className="flex-1 mb-4 relative">
+              <input
+                type="text"
+                placeholder="Email"
+                {...register('email')}
+                className="w-full border-b border-[#8D8D8D] text-[#8D8D8D] h-[48px] px-4 focus:outline-none"
+              />
+              {errors.email && <p className="text-red-500 text-sm mt-1 absolute">{errors.email.message}</p>}
+            </div>
+            {/* Phone */}
+            <div className="flex-1 mb-4 relative">
+              <input
+                type="text"
+                placeholder="Телефон"
+                {...register('phone')}
+                className="w-full border-b border-[#8D8D8D] text-[#8D8D8D] h-[48px] px-4 focus:outline-none"
+              />
+              {errors.phone && <p className="text-red-500 text-sm mt-1 absolute">{errors.phone.message}</p>}
+            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center h-[48px] mt-7 hover:opacity-80 transition disabled:opacity-50 rounded"
+            >
+              {loading ? 'Отправка...' : 'Отправить'}
+            </button>
+          </form>
+        </div>
+        {/* Map Section */}
+        <div className="w-full lg:w-1/2 min-h-[300px] h-[350px] md:h-[500px] xl:h-[700px] relative rounded-xl overflow-hidden shadow-xl">
+          <YMaps>
+            <Map
+              defaultState={{
+                center: [40.76376, -73.97487],
+                zoom: 15,
+                type: 'yandex#map',
+              }}
+              width="100%"
+              height="100%"
+            >
+              <Placemark geometry={[40.76376, -73.97487]} />
+            </Map>
+          </YMaps>
+          {/* Dark overlay for "night mode" effect */}
+          <div
+            className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            style={{
+              background: 'rgba(30, 30, 40, 0.55)',
+              mixBlendMode: 'multiply',
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ContactMap

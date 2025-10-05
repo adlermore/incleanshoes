@@ -1,0 +1,109 @@
+"use client"
+
+import useEmblaCarousel from "embla-carousel-react"
+import { useCallback } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
+import before1 from "@/public/images/beforeAfter/before1.jpg"
+import before2 from "@/public/images/beforeAfter/before2.jpg"
+import before3 from "@/public/images/beforeAfter/before3.jpg"
+import after1 from "@/public/images/beforeAfter/after1.jpg"
+import after2 from "@/public/images/beforeAfter/after2.jpg"
+import after3 from "@/public/images/beforeAfter/after3.jpg"
+
+const slides = [
+  {
+    id: 1,
+    image: before1,
+    title: "Бесплатная консультация и расчёт стоимости онлайн",
+    description: "Просто загрузите фото вещи на сайт — мы оценим степень загрязнения и подскажем стоимость чистки за несколько минут.",
+  },
+  {
+    id: 2,
+    title: "Забор и доставка вещей курьером",
+    description: "Вам не нужно тратить время на дорогу — курьер приедет в удобное время, заберёт вещи и вернёт их после чистки.",
+    image: before2,
+  },
+  {
+    id: 3,
+    title: "Безопасный и сертифицированный",
+    image: before3,
+    description: "Мы используем только профессиональные составы, которые бережно очищают кожу, текстиль и деликатные материалы без вреда для них."
+  },
+  {
+    id: 4,
+    title: "Индивидуальный подход к каждому заказу",
+    description: "Каждая вещь проходит диагностику, и мы подбираем оптимальную технологию чистки именно для неё, чтобы сохранить форму и качество.",
+    image: after1,
+  },
+  {
+    id: 5,
+    title: "Забор и доставка вещей курьером",
+    description: "Вам не нужно тратить время на дорогу — курьер приедет в удобное время, заберёт вещи и вернёт их после чистки.",
+    image: after2,
+  },
+]
+
+export function ServicesSlider() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+    breakpoints: {
+      "(min-width: 768px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 3 },
+      "(min-width: 1280px)": { slidesToScroll: 4 },
+    },
+  })
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  return (
+    <div className="relative">
+      {/* Left Arrow */}
+      <button
+        onClick={scrollPrev}
+        className="absolute w-[50px] h-[50px] bg-[#FAFAFA] flex items-center justify-center rounded-full 2xl:left-[-60px] left-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="h-8 w-8" />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={scrollNext}
+        className="absolute w-[50px] h-[50px] bg-[#FAFAFA] flex items-center justify-center rounded-full 2xl:right-[-60px] right-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="h-7 w-7" />
+      </button>
+
+      <div className="overflow-hidden w-full" ref={emblaRef}>
+        <div className="flex gap-5 px-5 md:px-10">
+          {slides.map((slide) => (
+            <div
+              key={slide.id}
+              className="flex-[0_0_80%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_25%] min-w-0"
+            >
+              <div>
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  className="object-cover w-full h-48 md:h-40 lg:h-48"
+                />
+                <h3 className="text-lg font-medium mt-4">{slide.title}</h3>
+                <p className="text-sm font-light mt-2">{slide.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,147 @@
+.header {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  background: white;
+
+  .mobile_sociels {
+    display: none;
+  }
+
+  .header_inner {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .header_logo {
+    position: relative;
+    max-width: 220px;
+  }
+
+  .lg_block {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .lg_decor {
+      width: 1.5px;
+      height: 20px;
+      display: block;
+    }
+
+    button {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      text-transform: uppercase;
+      font-size: 12px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.active {
+        color: #AB4A1F;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  }
+
+  .hamburger_block {
+    display: none;
+  }
+
+  // Mobile menu (drawer)
+  .mobile_menu {
+    position: fixed;
+    top: 100px;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #fff;
+    transition: right 0.3s ease-in-out;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 2px solid #AB4A1F;
+
+    &.open {
+      right: 0;
+    }
+
+    .mobile_links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+
+      a {
+        color: #000;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .header_inner {
+      gap: 20px;
+      height: 130px;
+    }
+  }
+
+  // Responsive
+  @media (max-width: 991px) {
+    .desktop_menu {
+      display: none;
+    }
+
+    .mobile_sociels {
+      display: flex;
+
+    }
+
+    .hamburger_block {
+      display: block;
+      z-index: 10000;
+    }
+
+    .header_inner {
+      height: 90px;
+    }
+
+    .header_logo {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .mobile_menu {
+      top: 80px;
+    }
+
+    .header_inner {
+      padding: 0 10px;
+      height: 80px;
+      gap: 10px;
+    }
+
+    .mobile_sociels {
+      >div {
+        padding: 0;
+        gap: 15px;
+      }
+    }
+  }
+}
