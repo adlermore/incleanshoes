@@ -7,14 +7,14 @@ import api from '@/utils/api'
 import { APIURLIMG } from '@/utils/constants'
 
 function Services() {
-  const [categories, setCategories] = React.useState<Array<{ id: number; name: string; image_path: string }>>([])
+  const [categories, setCategories] = React.useState<Array<{ id: number; name: string; image_path: string , description: string }>>([])
   const [loading, setLoading] = React.useState<boolean>(true)
 
   useEffect(() => {
     async function getServices() {
       try {
         const data = await api.get("/getCategories");
-        setCategories(data as Array<{ id: number; name: string; image_path: string }>);
+        setCategories(data as Array<{ id: number; name: string; image_path: string , description: string }>);
       } catch (error) {
         console.error("Failed to fetch users", error);
       } finally {
@@ -40,17 +40,36 @@ function Services() {
       {loading
         ? Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
         : categories.map((category) => (
-          <Link key={category.id} href="/#" className='w-full relative sm:h-[400px] h-[200px] overflow-hidden group'>
-            <div className='w-full h-full relative'>
+          <Link
+            key={category.id}
+            href={`/services#service_${category.id}`}
+            className="group w-full relative sm:h-[400px] h-[200px] overflow-hidden"
+          >
+            {/* Image */}
+            <div className="w-full h-full relative">
               <Image
                 src={APIURLIMG + category.image_path}
                 alt={category.name}
-                className='object-cover'
                 fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className='absolute font-medium uppercase bottom-0 left-0 right-0 p-6 sm:text-2xl text-lg text-center bg-gradient-to-t from-black to-transparent text-white'>
-              {category.name}
+
+            {/* Dark overlay (appears on hover) */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            {/* Text container */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-center text-white transition-all duration-500">
+              {/* Category name */}
+              <div className="font-medium uppercase sm:text-2xl text-lg transform transition-transform duration-500 group-hover:-translate-y-4">
+                {category.name}
+              </div>
+
+              {/* Description (hidden until hover) */}
+              <div
+                className="opacity-0 max-h-0 overflow-hidden  mt-2  elipses10 transition-all duration-500 group-hover:opacity-100 group-hover:max-h-60"
+                dangerouslySetInnerHTML={{ __html: category.description }}
+              />
             </div>
           </Link>
         ))

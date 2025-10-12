@@ -65,7 +65,7 @@ export function ServicesSlider() {
   }, [emblaApi])
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden pb-2">
       {/* Left Arrow */}
       <button
         onClick={scrollPrev}
@@ -84,18 +84,18 @@ export function ServicesSlider() {
         <ChevronRight className="h-7 w-7" />
       </button>
 
-      <div className="overflow-hidden w-full" ref={emblaRef}>
+      <div className="overflow w-full" ref={emblaRef}>
         <div className="flex gap-5 px-5 md:px-10">
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className="flex-[0_0_80%] sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_25%] min-w-0"
+              className="flex-[0_0_80%] duration-300 hover:shadow-md sm:flex-[0_0_45%] md:flex-[0_0_30%] lg:flex-[0_0_25%] min-w-0"
             >
-              <div>
+              <div className="p-3">
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  className="object-cover w-full h-48 md:h-40 lg:h-48"
+                  className="object-cover w-full h-40"
                 />
                 <h3 className="text-lg font-medium mt-4">{slide.title}</h3>
                 <p className="text-sm font-light mt-2">{slide.description}</p>

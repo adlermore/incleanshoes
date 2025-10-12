@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import { JsonContextProvider } from "@/context/JsonContext";
 import Header from "@/components/layout/Header";
+import Head from "next/head";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,6 +20,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "CleanShoes - Premium Shoe Cleaning Service",
+  icons: {
+    icon: "/favicon.ico",
+  },
   description:
     "Professional shoe cleaning, restoration, and care service. Keep your sneakers and leather shoes looking fresh and spotless.",
   keywords: [
@@ -63,6 +67,9 @@ export default async function LocaleLayout({
   return (
     <JsonContextProvider>
       <html lang={locale}>
+        <Head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+        </Head>
         <body className={montserrat.className}>
           <NextIntlClientProvider>
             <Toaster containerStyle={{ zIndex: 9999 }} position="bottom-right" />

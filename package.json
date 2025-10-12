@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@pbe/react-yandex-maps": "^1.2.5",
     "axios": "^1.12.2",
+    "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.22",
     "hamburger-react": "^2.5.2",

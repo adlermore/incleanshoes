@@ -5,7 +5,6 @@ import history from '@/public/images/history.png'
 function OurHistory() {
   return (
     <div className="min-h-screen mt-20 flex flex-col lg:flex-row">
-
       <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-screen">
         <Image
           src={history}
@@ -39,7 +38,7 @@ function OurHistory() {
         </div>
 
         <div className="flex justify-end mt-12 lg:mt-16">
-          <button className="border-2 border-[#000000] bg-transparent px-8 py-4 text-[#000000] text-sm tracking-widest hover:bg-[#000000] hover:text-[#f5f4f4] transition-colors duration-300">
+          <button className="border-2 border-[#000000] bg-transparent px-8 py-4 cursor-pointer hover:text-sitecolor hover:bg-white text-[#000000] text-sm tracking-widest  transition-colors duration-300">
             ПОСМОТРЕТЬ БОЛЬШЕ
           </button>
         </div>

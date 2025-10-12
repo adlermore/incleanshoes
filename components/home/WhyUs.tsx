@@ -10,7 +10,7 @@ function WhyUs() {
       <div className='custom_container'>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-[#ffffff]  p-6 shadow-sm">
+            <div className="bg-[#ffffff]  p-6 shadow-sm duration-300 hover:shadow-md">
               <div className="w-16 h-16 flex items-center justify-center bg-[#ab4a1f] rounded mb-4" >
                 <IconWhy1 />
               </div>
@@ -20,7 +20,7 @@ function WhyUs() {
                 загрязнениями.
               </p>
             </div>
-            <div className="bg-[#ffffff]  p-6 shadow-sm">
+            <div className="bg-[#ffffff]  p-6 shadow-sm duration-300 hover:shadow-md">
               <div className="w-16 h-16 bg-[#ab4a1f] rounded mb-4 flex items-center justify-center">
                 <IconWhy2 />
               </div>
@@ -29,7 +29,7 @@ function WhyUs() {
                 Прозрачная стоимость без скрытых платежей. Вы заранее знаете, сколько будет стоить услуга.
               </p>
             </div>
-            <div className="bg-[#ffffff]  p-6 shadow-sm">
+            <div className="bg-[#ffffff]  p-6 shadow-sm duration-300 hover:shadow-md">
               <div className="w-16 h-16 bg-[#ab4a1f] rounded mb-4 flex items-center justify-center">
                 <IconWhy3 />
               </div>
@@ -38,7 +38,7 @@ function WhyUs() {
                 Выполняем заказы за 3–14 дней в зависимости от сложности чистки.
               </p>
             </div>
-            <div className="bg-[#ffffff]  p-6 shadow-sm">
+            <div className="bg-[#ffffff]  p-6 shadow-sm duration-300 hover:shadow-md">
               <div className="w-16 h-16 bg-[#ab4a1f] rounded mb-4 flex items-center justify-center">
                 <IconWhy4 />
               </div>

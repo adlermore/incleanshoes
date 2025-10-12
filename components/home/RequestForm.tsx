@@ -85,7 +85,7 @@ function RequestForm() {
       <div className="custom_container h-full text-white flex items-center z-10 relative">
         <div className="md:max-w-1/2 md:pr-20">
           <h2 className="text-xl uppercase xl:text-3xl  mb-3 leading-tight">
-            оставьте заявку
+            Оставьте заявку
           </h2>
           <p className="text-[15px] max-w-[500px] font-light mt-6 mb-6 leading-relaxed">
             Наш менеджер проконсультирует Вас о наших услугах и даст оценку стоимости по предоставленному фото.
@@ -126,7 +126,7 @@ function RequestForm() {
 
             {/* Custom File Input */}
             <div className="relative mt-10">
-              <label className="w-full flex items-center justify-between bg-white text-[#214951] cursor-pointer h-[59px] px-4">
+              <label className="w-full flex items-center justify-between bg-white duration-300 hover:opacity-50 text-[#214951] cursor-pointer h-[59px] px-4">
                 <div className="flex items-center w-full justify-center gap-2">
                   <Paperclip size={18} />
                   <span>{fileName || 'Прикрепить фото'}</span>
@@ -154,7 +154,7 @@ function RequestForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center h-[59px] mt-7 hover:opacity-75 transition disabled:opacity-50"
+              className="w-full bg-[#AB4A1F] site_hover cursor-pointer uppercase text-white flex justify-center items-center h-[59px] mt-7 hover:opacity-75 transition disabled:opacity-50"
             >
               {loading ? 'Отправка...' : 'Отправить'}
             </button>

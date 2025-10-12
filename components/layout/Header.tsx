@@ -60,9 +60,9 @@ function Header() {
               <Link href={`https://wa.me/${contacts?.whatsapp}`} target='_blank' className='duration-300 hover:opacity-70'><IconHeaderWhatsapp /></Link>
             </div>
             <div className='flex items-center half_menu justify-around pt-3 font-medium text-[15px] uppercase ml-4'>
-              <Link href='/#'>Услуги</Link>
-              <Link href='/#'>Работы</Link>
-              <Link href='/#'>Контакты</Link>
+              <Link href='/services'>Услуги</Link>
+              <Link href='/works'>Работы</Link>
+              <Link href='/contacts'>Контакты</Link>
             </div>
           </div>
           <div className='mobile_sociels'>
@@ -101,9 +101,9 @@ function Header() {
               </div>
             </div>
             <div className='flex items-center half_menu justify-around pt-3 font-medium text-[15px] uppercase ml-4'>
-              <Link href='/#'>О нас</Link>
-              <Link href='/#'>Цены</Link>
-              <Link href='/#'>FAQ</Link>
+              <Link href='/about'>О нас</Link>
+              <Link href='/prices'>Цены</Link>
+              <Link href='/faq'>FAQ</Link>
             </div>
           </div>
 

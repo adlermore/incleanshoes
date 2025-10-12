@@ -91,7 +91,7 @@ function SmallContactForm() {
           <button
             type='submit'
             disabled={loading}
-            className='w-full max-w-[210px] bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center h-[59px] hover:opacity-75 transition disabled:opacity-50'
+            className='w-full site_hover max-w-[210px] bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center h-[59px] hover:opacity-75 transition disabled:opacity-50'
           >
             {loading ? 'Отправка...' : 'Отправить'}
           </button>

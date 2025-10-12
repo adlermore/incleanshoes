@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import mainBanner from "@/public/images/ServiceCalculate.png";
@@ -8,50 +8,69 @@ import IconService1 from "../Icons/IconService1";
 import IconService2 from "../Icons/IconService2";
 import IconService3 from "../Icons/IconService3";
 import IconService4 from "../Icons/IconService4";
+import { APIURL } from "@/utils/constants";
 
-interface ServiceOption {
+interface Service {
   id: number;
-  label: string;
-  price?: number;
-  icon?: React.ReactNode;
+  name: string;
+  price: number;
 }
 
-const step1Options: ServiceOption[] = [
-  { id: 1, label: "Обувь", icon: <IconService1 /> },
-  { id: 2, label: "Сумки", icon: <IconService2 /> },
-  { id: 3, label: "Одежда", icon: <IconService3 /> },
-  { id: 4, label: "Рюкзаки, клатчи, портмоне и другое", icon: <IconService4 /> },
-];
+interface Category {
+  id: number;
+  name: string;
+  services: Service[];
+}
 
-const step2Services: ServiceOption[] = [
-  { id: 1, label: "Чистка кожи", price: 20 },
-  { id: 2, label: "Полировка", price: 15 },
-  { id: 3, label: "Замена подошвы", price: 50 },
-  { id: 4, label: "Покраска", price: 30 },
-];
+const icons = [<IconService1 />, <IconService2 />, <IconService3 />, <IconService4 />];
 
 function ServiceCalculate() {
   const [step, setStep] = useState(1);
-  const [selectedStep1, setSelectedStep1] = useState<number | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
   const [selectedServices, setSelectedServices] = useState<number[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${APIURL}/getServicesByCategories`);
+        const data = await res.json();
+        // Only use first 4 categories and their first 4 services
+        setCategories(
+          data.slice(0, 4).map((cat: any) => ({
+            id: cat.id,
+            name: cat.name,
+            services: cat.services ? cat.services.slice(0, 4) : [],
+          }))
+        );
+      } catch (error) {
+        setCategories([]);
+      }
+    };
+    fetchData();
+  }, []);
+
   const handleStep1Submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedStep1) {
+    if (selectedCategoryId) {
       setStep(2);
+      setSelectedServices([]);
+      setTotalPrice(0);
     }
   };
 
-  const handleServiceToggle = (id: number, price?: number) => {
+  const handleServiceToggle = (id: number, price: number) => {
     if (selectedServices.includes(id)) {
       setSelectedServices(selectedServices.filter((s) => s !== id));
-      if (price) setTotalPrice(totalPrice - price);
+      setTotalPrice(totalPrice - price);
     } else {
       setSelectedServices([...selectedServices, id]);
-      if (price) setTotalPrice(totalPrice + price);
+      setTotalPrice(totalPrice + price);
     }
   };
+
+  const selectedCategory = categories.find(cat => cat.id === selectedCategoryId);
 
   return (
     <div className="xl:py-30 md:py-20 py-10 w-full relative">
@@ -76,44 +95,44 @@ function ServiceCalculate() {
                 className="sm:grid  grid-cols-2 gap-4"
               >
                 <h2 className="text-xl xl:text-3xl mb-5 leading-tight col-span-2">
-                  Узнайте точную стоимостьхимчистки, ремонта илиреставрации
+                  Узнайте точную стоимость химчистки, ремонта или реставрации
                 </h2>
-                {step1Options.map((option) => (
+                {categories.map((category, idx) => (
                   <label
-                    key={option.id}
+                    key={category.id}
                     className={`p-4 flex mb-5 sm:mb-0 items-center gap-5 cursor-pointer rounded-xl transition-colors duration-200
-                      ${selectedStep1 === option.id ? "bg-[#214851] text-white" : "bg-white text-black"}
+                      ${selectedCategoryId === category.id ? "bg-[#214851] text-white" : "bg-white text-black"}
                     `}
                   >
                     <input
                       type="radio"
-                      name="step1"
-                      value={option.id}
+                      name="category"
+                      value={category.id}
                       className="hidden"
-                      checked={selectedStep1 === option.id}
-                      onChange={() => setSelectedStep1(option.id)}
+                      checked={selectedCategoryId === category.id}
+                      onChange={() => setSelectedCategoryId(category.id)}
                     />
                     <span
                       className={`min-w-10 h-10 flex items-center justify-center rounded-xl transition-colors duration-200
-                      ${selectedStep1 === option.id ? "bg-white text-[#214851]" : "bg-[#E9E8EA] text-black"}
+                      ${selectedCategoryId === category.id ? "bg-white text-[#214851]" : "bg-[#E9E8EA] text-black"}
                     `}
                     >
-                      {option.icon}
+                      {icons[idx]}
                     </span>
-                    {option.label}
+                    {category.name}
                   </label>
                 ))}
 
                 <button
                   type="submit"
-                  className="w-full uppercase col-span-2 mt-7 cursor-pointer duration-300 hover:opacity-70 text-white h-[49px] bg-[#52425C]"
+                  className="w-full uppercase second_hover col-span-2 mt-7 cursor-pointer duration-300 hover:opacity-70 text-white h-[49px] bg-[#52425C]"
                 >
                   Выбрать услуги
                 </button>
               </motion.form>
             )}
 
-            {step === 2 && (
+            {step === 2 && selectedCategory && (
               <motion.div
                 key="step2"
                 initial={{ opacity: 0, y: 20 }}
@@ -122,10 +141,10 @@ function ServiceCalculate() {
                 className="grid grid-cols-2 gap-4"
               >
                 <h2 className="text-xl xl:text-3xl mb-5 leading-tight col-span-2">
-                  Узнайте точную стоимость химчистки, ремонта или реставрации
+                  Выберите услуги для расчета стоимости
                 </h2>
 
-                {step2Services.map((service) => {
+                {selectedCategory.services.map((service) => {
                   const isSelected = selectedServices.includes(service.id);
                   return (
                     <label
@@ -149,14 +168,14 @@ function ServiceCalculate() {
                         ✓
                       </span>
                       <span>
-                        {service.label} {service.price && `- $${service.price}`}
+                        {service.name} {service.price && `- ₽${service.price}`}
                       </span>
                     </label>
                   );
                 })}
 
                 <div className="col-span-2 mt-4 text-lg font-semibold">
-                  Итоговая цена: ${totalPrice}
+                  Итоговая цена: ₽{totalPrice}
                 </div>
               </motion.div>
             )}
