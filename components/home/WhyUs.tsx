@@ -6,7 +6,7 @@ import IconWhy4 from '../Icons/IconWhy4'
 
 function WhyUs() {
   return (
-    <div className="bg-[#f5f4f4] py-20 mt-16 px-6 lg:px-12">
+    <div className="bg-[#f5f4f4] sm:py-20 py-6 mt-16 sm:px-6 lg:px-12">
       <div className='custom_container'>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -49,7 +49,7 @@ function WhyUs() {
             </div>
           </div>
           <div className="lg:pt-8 sm:pl-10">
-            <h2 className="text-[#000000] text-4xl lg:text-3xl  mb-8 tracking-wider">
+            <h2 className="text-[#000000] sm:text-4xl text-lg lg:text-3xl  mb-8 tracking-wider">
               ПОЧЕМУ
               <br />
               ВЫБИРАЮТ НАС

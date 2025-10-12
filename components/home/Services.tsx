@@ -36,7 +36,7 @@ function Services() {
   )
 
   return (
-    <div className='grid xl:grid-cols-4 md:grid-cols-3  grid-cols-2 gap-[25px]'>
+    <div className='grid xl:grid-cols-4 md:grid-cols-3  grid-cols-2 sm:gap-[25px] gap-3'>
       {loading
         ? Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
         : categories.map((category) => (
@@ -59,9 +59,9 @@ function Services() {
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Text container */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-center text-white transition-all duration-500">
+            <div className="absolute bottom-0 left-0 right-0 sm:p-6 p-3 text-center text-white transition-all duration-500">
               {/* Category name */}
-              <div className="font-medium uppercase sm:text-2xl text-lg transform transition-transform duration-500 group-hover:-translate-y-4">
+              <div className="font-medium uppercase sm:text-2xl text-md transform transition-transform duration-500 group-hover:-translate-y-4">
                 {category.name}
               </div>
 

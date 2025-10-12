@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function HalfBanner() {
@@ -31,9 +32,9 @@ function HalfBanner() {
           <p className="text-lg mb-12 font-light leading-relaxed">
             Работаем с любыми типами загрязнений — от простых пятен до сложных повреждений ткани и кожи.
           </p>
-          <button className="bg-[#52425c] cursor-pointer duration-300 border-2 border-transparent hover:border-sitecolor hover:bg-white text-white hover:text-sitecolor xl:px-12 py-3 px-6 xl:text-lg font-light text-sm uppercase tracking-wide">
+          <Link href='/services' className="bg-[#52425c] cursor-pointer duration-300 border-2 border-transparent hover:border-sitecolor hover:bg-white text-white hover:text-sitecolor xl:px-12 py-3 px-6 xl:text-lg font-light text-sm uppercase tracking-wide">
             УЗНАТЬ БОЛЬШЕ
-          </button>
+          </Link>
         </div>
       </div>
     </div>

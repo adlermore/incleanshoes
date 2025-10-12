@@ -69,7 +69,7 @@ export function ServicesSlider() {
       {/* Left Arrow */}
       <button
         onClick={scrollPrev}
-        className="absolute w-[50px] h-[50px] bg-[#FAFAFA] flex items-center justify-center rounded-full 2xl:left-[-60px] left-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
+        className="absolute  hidden sm:flex w-[50px] h-[50px] bg-[#FAFAFA] items-center justify-center rounded-full 2xl:left-[-60px] left-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-8 w-8" />
@@ -78,7 +78,7 @@ export function ServicesSlider() {
       {/* Right Arrow */}
       <button
         onClick={scrollNext}
-        className="absolute w-[50px] h-[50px] bg-[#FAFAFA] flex items-center justify-center rounded-full 2xl:right-[-60px] right-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground"
+        className="absolute w-[50px] h-[50px] bg-[#FAFAFA] hidden sm:flex  items-center justify-center rounded-full 2xl:right-[-60px] right-[-30px] top-1/2 -translate-y-1/2 z-20 hover:bg-accent hover:text-accent-foreground"
         aria-label="Next slide"
       >
         <ChevronRight className="h-7 w-7" />
@@ -97,7 +97,7 @@ export function ServicesSlider() {
                   alt={slide.title}
                   className="object-cover w-full h-40"
                 />
-                <h3 className="text-lg font-medium mt-4">{slide.title}</h3>
+                <h3 className="sm:text-lg font-medium mt-4">{slide.title}</h3>
                 <p className="text-sm font-light mt-2">{slide.description}</p>
               </div>
             </div>

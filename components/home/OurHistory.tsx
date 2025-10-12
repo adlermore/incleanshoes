@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import history from '@/public/images/history.png'
+import Link from 'next/link'
 
 function OurHistory() {
   return (
@@ -15,7 +16,7 @@ function OurHistory() {
         />
       </div>
 
-      <div className="w-full lg:w-1/2 bg-[#f5f4f4] flex flex-col justify-between p-8 lg:p-16 xl:p-24">
+      <div className="w-full lg:w-1/2 bg-[#f5f4f4] flex flex-col justify-between p-4 lg:p-16 xl:p-24">
         <div className="flex-1 flex flex-col justify-center">
           <h1 className="text-[#000000] text-xl lg:text-2xl xl:text-3xl  tracking-wide mb-8 lg:mb-12">
             НАША ИСТОРИЯ
@@ -38,9 +39,9 @@ function OurHistory() {
         </div>
 
         <div className="flex justify-end mt-12 lg:mt-16">
-          <button className="border-2 border-[#000000] bg-transparent px-8 py-4 cursor-pointer hover:text-sitecolor hover:bg-white text-[#000000] text-sm tracking-widest  transition-colors duration-300">
+          <Link href="/about" className="border-2 border-[#000000] bg-transparent sm:px-8 px-4 sm:py-4 py-3 cursor-pointer hover:text-sitecolor hover:bg-white text-[#000000] text-sm tracking-widest  transition-colors duration-300">
             ПОСМОТРЕТЬ БОЛЬШЕ
-          </button>
+          </Link>
         </div>
       </div>
     </div>

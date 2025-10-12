@@ -62,7 +62,7 @@ function SmallContactForm() {
               type='text'
               placeholder='Ваше имя'
               {...register('name')}
-              className='w-full border border-[#8D8D8D] h-[59px] px-4'
+              className='w-full border border-[#8D8D8D] sm:h-[59px] h-[45px] px-4'
             />
             <div
               className={`transition-opacity duration-300 text-red-500 absolute text-sm mt-1 ${errors.name ? 'opacity-100' : 'opacity-0'
@@ -77,7 +77,7 @@ function SmallContactForm() {
               type='text'
               placeholder='Телефон'
               {...register('phone')}
-              className='w-full border border-[#8D8D8D] h-[59px] px-4'
+              className='w-full border border-[#8D8D8D] sm:h-[59px] h-[45px] px-4'
             />
             <div
               className={`transition-opacity duration-300 text-red-500 absolute text-sm mt-1 ${errors.phone ? 'opacity-100' : 'opacity-0'
@@ -91,7 +91,7 @@ function SmallContactForm() {
           <button
             type='submit'
             disabled={loading}
-            className='w-full site_hover max-w-[210px] bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center h-[59px] hover:opacity-75 transition disabled:opacity-50'
+            className='w-full site_hover sm:max-w-[210px] bg-[#AB4A1F] cursor-pointer uppercase text-white flex justify-center items-center sm:h-[59px] h-[45px] hover:opacity-75 transition disabled:opacity-50'
           >
             {loading ? 'Отправка...' : 'Отправить'}
           </button>

@@ -28,7 +28,7 @@ export default async function Home() {
           Наши работы
         </div>
         <BeforeAfterCarousel />
-        <Link href="/gallery" className="mx-auto site_hover mt-18 mb-16 bg-[#AB4A1F] cursor-pointer duration-300 hover:opacity-70 text-white  xl:px-12 py-3 px-6  xl:text-lg font-light text-sm uppercase tracking-wide block w-max">
+        <Link href="/works" className="mx-auto site_hover mt-18 mb-16 bg-[#AB4A1F] cursor-pointer duration-300 hover:opacity-70 text-white  xl:px-12 py-3 px-6  xl:text-lg font-light text-sm uppercase tracking-wide block w-max">
           Посмотреть больше
         </Link>
       </div>

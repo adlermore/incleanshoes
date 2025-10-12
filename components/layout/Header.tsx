@@ -88,7 +88,7 @@ function Header() {
           {/* Right menu (hidden on mobile) */}
           <div className='menu_block desktop_menu flex-1'>
             <div className='flex gap-5 justify-end items-center pb-[10px] border-b border-[#352B33]'>
-              <div className='lg_block '>
+              <div className='lg_block cursor-not-allowed'>
                 <button
                   onClick={() => switchLocale('ru')}
                   className={currentLocale === 'ru' ? 'active' : ''}

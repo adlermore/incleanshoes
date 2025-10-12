@@ -8,6 +8,7 @@
 
 html {
   height: 100%;
+    overflow-x: hidden;
 }
 
 input {
@@ -88,8 +89,16 @@ body {
 }
 
 @media screen and (max-width: 575px) {
+  .section_title{
+    font-size: 24px !important; 
+  }
   .main-wrapper {
     padding-top: 80px;
+  }
+  .header{
+    .custom_container{
+      padding: 0 10px;
+    }
   }
 }
 

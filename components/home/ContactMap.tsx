@@ -1,7 +1,5 @@
 'use client'
-import Image from 'next/image'
 import React, { useContext, useState } from 'react'
-import requestForm from '@/public/images/requestForm.png'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'

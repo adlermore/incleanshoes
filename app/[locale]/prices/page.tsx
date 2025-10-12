@@ -81,7 +81,7 @@ export default function Prices() {
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={clsx(
-                    "px-4 py-2 text-left border rounded-lg transition-all duration-200",
+                    "px-4 py-3 text-left border transition-all duration-200",
                     activeCategory === category.id
                       ? "bg-[#AB4A1F] text-white border-[#AB4A1F]"
                       : "bg-white hover:bg-gray-100 border-gray-300 text-gray-800"
@@ -96,7 +96,7 @@ export default function Prices() {
           {/* Services List */}
           <div className="md:w-2/3 w-full">
             {activeCategoryData ? (
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="bg-white  shadow-sm border border-gray-100 p-6">
                 <h3 className="text-xl font-semibold text-[#AB4A1F] mb-4">
                   {activeCategoryData.name}
                 </h3>
@@ -108,7 +108,7 @@ export default function Prices() {
                       className="flex justify-between py-3 text-gray-700"
                     >
                       <span>{service.name}</span>
-                      <span className="font-medium">{service.price} ֏</span>
+                      <span className="font-medium">от {service.price} ₽ </span>
                     </div>
                   ))}
                 </div>

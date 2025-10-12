@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import mainBanner from '@/public/images/secondHalf.png'
+import Link from 'next/link'
 
 function SeondHalf() {
   return (
@@ -24,9 +25,9 @@ function SeondHalf() {
           <p className="text-lg mb-12 font-light leading-relaxed">
             Это позволяет нам достигать безупречных результатов и обеспечивать долговечность вашей одежды.
           </p>
-          <button className="bg-[#52425c] second_hover cursor-pointer hover:bg-[#52425c]/90 text-white  xl:px-12 py-3 px-6  xl:text-lg font-light text-sm uppercase tracking-wide">
+          <Link href="/services"  className="bg-[#52425c] second_hover cursor-pointer hover:bg-[#52425c]/90 text-white  xl:px-12 py-3 px-6  xl:text-lg font-light text-sm uppercase tracking-wide">
             Посмотреть
-          </button>
+          </Link>
         </div>
       </div>
     </div>

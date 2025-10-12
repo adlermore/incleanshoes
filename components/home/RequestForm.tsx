@@ -126,7 +126,7 @@ function RequestForm() {
 
             {/* Custom File Input */}
             <div className="relative mt-10">
-              <label className="w-full flex items-center justify-between bg-white duration-300 hover:opacity-50 text-[#214951] cursor-pointer h-[59px] px-4">
+              <label className="w-full flex items-center justify-between bg-white duration-300 hover:opacity-50 text-[#214951] cursor-pointer sm:h-[59px] h-[45px] px-4">
                 <div className="flex items-center w-full justify-center gap-2">
                   <Paperclip size={18} />
                   <span>{fileName || 'Прикрепить фото'}</span>
@@ -154,7 +154,7 @@ function RequestForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#AB4A1F] site_hover cursor-pointer uppercase text-white flex justify-center items-center h-[59px] mt-7 hover:opacity-75 transition disabled:opacity-50"
+              className="w-full bg-[#AB4A1F] site_hover cursor-pointer uppercase text-white flex justify-center items-center sm:h-[59px] h-[45px] mt-7 hover:opacity-75 transition disabled:opacity-50"
             >
               {loading ? 'Отправка...' : 'Отправить'}
             </button>

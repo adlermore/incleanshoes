@@ -138,7 +138,7 @@ function ServiceCalculate() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="grid grid-cols-2 gap-4"
+                className="grid sm:grid-cols-2 gap-4"
               >
                 <h2 className="text-xl xl:text-3xl mb-5 leading-tight col-span-2">
                   Выберите услуги для расчета стоимости
@@ -161,7 +161,7 @@ function ServiceCalculate() {
                         onChange={() => handleServiceToggle(service.id, service.price)}
                       />
                       <span
-                        className={`w-6 h-6 flex items-center justify-center border rounded transition-all duration-200
+                        className={`min-w-6 h-6 flex items-center justify-center border rounded transition-all duration-200
                         ${isSelected ? "bg-white text-[#214851] border-white" : "bg-white border-gray-400"}
                       `}
                       >
