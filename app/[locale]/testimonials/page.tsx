@@ -341,9 +341,6 @@ export default function Testimonials() {
                   <div className="space-y-3">
                     <h4 className="text-lg font-medium">{selectedReview.title}</h4>
                     <p className="text-gray-700 whitespace-pre-wrap break-words">{selectedReview.comment}</p>
-                    <div className="text-sm text-gray-400 mt-2">
-                      Опубликовано: {new Date(selectedReview.created_at).toLocaleDateString()}
-                    </div>
                     <div className="text-sm text-gray-400">Последнее обновление: {new Date(selectedReview.updated_at).toLocaleDateString()}</div>
                   </div>
 
@@ -361,9 +358,7 @@ export default function Testimonials() {
                 <div className="space-y-3">
                   <h4 className="text-lg font-medium">{selectedReview.title}</h4>
                   <p className="text-gray-700 whitespace-pre-wrap break-words">{selectedReview.comment}</p>
-                  <div className="text-sm text-gray-400 mt-2">
-                    Опубликовано: {new Date(selectedReview.created_at).toLocaleDateString()}
-                  </div>
+               
                   <div className="text-sm text-gray-400">Последнее обновление: {new Date(selectedReview.updated_at).toLocaleDateString()}</div>
                 </div>
               )}
