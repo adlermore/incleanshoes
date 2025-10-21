@@ -86,12 +86,12 @@ export function CenteredSlider() {
               return (
                 <div
                   key={index}
-                  className="flex-[0_0_60%] sm:flex-[0_0_33%] md:flex-[0_0_25%]  min-w-0 pl-2 sm:pl-4 py-6 sm:py-8"
+                  className={`flex-[0_0_60%] sm:flex-[0_0_33%] md:flex-[0_0_25%]  min-w-0 pl-2 sm:pl-4 py-6 sm:py-8 ${isCenter ? "z-20" : "z-0"}`}
                 >
                   <div
-                    className={`relative aspect-[1/1.2] overflow-hidden transition-all duration-500 ease-out ${isCenter
-                        ? "scale-110 opacity-100 z-10"
-                        : "scale-90 opacity-60 z-0"
+                    className={`relative aspect-[1/0.7] overflow-hidden transition-all duration-500 ease-out ${isCenter
+                        ? "scale-120 opacity-100 z-999 bg-white"
+                        : "scale-100  z-0 filter-[brightness(0.6)]"
                       }`}
                   >
                     <Image

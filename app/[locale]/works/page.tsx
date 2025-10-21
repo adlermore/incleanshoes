@@ -82,6 +82,8 @@ export default function Works() {
 
   if (loading) return <PageLoader />
 
+  console.log('filteredPhotos', filteredPhotos);
+
   return (
     <div className="relative pb-20">
       {/* Banner */}
@@ -91,12 +93,14 @@ export default function Works() {
 
       {/* Intro */}
       <div className="custom_container">
-        <div className="mt-12 text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
-          Познакомьтесь с нашей работой
-        </div>
-        <div className="mt-6 mb-12 text-base sm:text-lg leading-8 text-gray-700">
-          Обувь требует особого ухода, чтобы надолго сохранить опрятный внешний вид и форму. <br />
-          Мы аккуратно очищаем, восстанавливаем и придаём свежесть вашей паре.
+        <div className='ml-auto max-w-4xl '>
+          <div className="mt-12 ml-auto text-right text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
+            Познакомьтесь с нашей работой
+          </div>
+          <div className="mt-6 text-right mb-12 text-base sm:text-lg leading-8 text-gray-700">
+            Обувь требует особого ухода, чтобы надолго сохранить опрятный внешний вид и форму.
+            Мы аккуратно очищаем, восстанавливаем и придаём свежесть вашей паре.
+          </div>
         </div>
 
         {/* Layout */}
@@ -127,9 +131,9 @@ export default function Works() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                   {filteredPhotos.slice(0, visibleCount).map(photo => (
-                    <div key={photo.id} className="group overflow-hidden rounded-2xl relative">
+                    <div key={photo.id} className="group overflow-hidden relative">
                       {/* Left Image */}
                       <div className="relative w-full h-[250px] sm:h-[300px]">
                         <Image
@@ -140,14 +144,14 @@ export default function Works() {
                         />
                       </div>
                       {/* Right Image */}
-                      <div className="relative w-full h-[250px] sm:h-[300px] mt-3">
+                      {/* <div className="relative w-full h-[250px] sm:h-[300px] mt-3">
                         <Image
                           src={APIURLIMG + photo.image_path_right}
                           alt="After"
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                      </div>
+                      </div> */}
                     </div>
                   ))}
                 </div>

@@ -4,17 +4,15 @@ import useEmblaCarousel from "embla-carousel-react"
 import { useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
-import before1 from "@/public/images/beforeAfter/before1.jpg"
-import before2 from "@/public/images/beforeAfter/before2.jpg"
-import before3 from "@/public/images/beforeAfter/before3.jpg"
-import after1 from "@/public/images/beforeAfter/after1.jpg"
-import after2 from "@/public/images/beforeAfter/after2.jpg"
-import after3 from "@/public/images/beforeAfter/after3.jpg"
+import service1 from "@/public/images/services/service1.png"
+import service2 from "@/public/images/services/service2.png"
+import service3 from "@/public/images/services/service3.png"
+import service4 from "@/public/images/services/service4.png"
 
 const slides = [
   {
     id: 1,
-    image: before1,
+    image: service1,
     title: "Бесплатная консультация и расчёт стоимости онлайн",
     description: "Просто загрузите фото вещи на сайт — мы оценим степень загрязнения и подскажем стоимость чистки за несколько минут.",
   },
@@ -22,25 +20,19 @@ const slides = [
     id: 2,
     title: "Забор и доставка вещей курьером",
     description: "Вам не нужно тратить время на дорогу — курьер приедет в удобное время, заберёт вещи и вернёт их после чистки.",
-    image: before2,
+    image: service2,
   },
   {
     id: 3,
     title: "Безопасный и сертифицированный",
-    image: before3,
+    image: service3,
     description: "Мы используем только профессиональные составы, которые бережно очищают кожу, текстиль и деликатные материалы без вреда для них."
   },
   {
     id: 4,
     title: "Индивидуальный подход к каждому заказу",
     description: "Каждая вещь проходит диагностику, и мы подбираем оптимальную технологию чистки именно для неё, чтобы сохранить форму и качество.",
-    image: after1,
-  },
-  {
-    id: 5,
-    title: "Забор и доставка вещей курьером",
-    description: "Вам не нужно тратить время на дорогу — курьер приедет в удобное время, заберёт вещи и вернёт их после чистки.",
-    image: after2,
+    image: service4,
   },
 ]
 

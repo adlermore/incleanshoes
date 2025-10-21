@@ -81,7 +81,7 @@ function ServiceCalculate() {
         className="object-cover"
         priority
       />
-      <div className="absolute top-0 right-0 sm:max-w-1/2 w-full h-full bg-[#ffffffa8] z-0"></div>
+      <div className="absolute top-0 right-0 sm:max-w-1/2 w-full h-full shadow-xl  bg-[#ffffffa8] z-0"></div>
       <div className="custom_container h-full flex items-center z-10 relative">
         <div className="ml-auto md:max-w-1/2 sm:pl-20 md:pr-20 w-full">
           <AnimatePresence mode="wait">

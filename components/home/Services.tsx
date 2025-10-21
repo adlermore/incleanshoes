@@ -45,7 +45,6 @@ function Services() {
             href={`/services#service_${category.id}`}
             className="group w-full relative sm:h-[400px] h-[200px] overflow-hidden"
           >
-            {/* Image */}
             <div className="w-full h-full relative">
               <Image
                 src={APIURLIMG + category.image_path}
@@ -54,18 +53,14 @@ function Services() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
+         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/75" />
 
-            {/* Dark overlay (appears on hover) */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            {/* Text container */}
             <div className="absolute bottom-0 left-0 right-0 sm:p-6 p-3 text-center text-white transition-all duration-500">
               {/* Category name */}
               <div className="font-medium uppercase sm:text-2xl text-md transform transition-transform duration-500 group-hover:-translate-y-4">
                 {category.name}
               </div>
 
-              {/* Description (hidden until hover) */}
               <div
                 className="opacity-0 max-h-0 overflow-hidden  mt-2  elipses10 transition-all duration-500 group-hover:opacity-100 group-hover:max-h-60"
                 dangerouslySetInnerHTML={{ __html: category.description }}
