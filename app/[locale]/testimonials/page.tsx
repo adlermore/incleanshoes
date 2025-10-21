@@ -58,8 +58,7 @@ export default function Testimonials() {
     resolver: yupResolver(schema),
   })
 
-  // --- Hooks related to modal/outside click and keyboard must be declared
-  //     before any conditional returns so hook order stays stable across renders.
+  // Modal refs and keyboard handlers declared before conditional returns to keep hook order stable
   const overlayRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -314,10 +313,11 @@ export default function Testimonials() {
           }}
         >
           <div
-            className="relative max-w-3xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-200 scale-100"
+            className="relative max-w-3xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-200 scale-100 max-h-[90vh]"
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-4 p-6 border-b">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4 border-[#ccc] p-6 border-b">
               <div>
                 <h3 className="text-2xl font-semibold leading-tight">{selectedReview.name}</h3>
                 <div className="text-yellow-500 mt-2">
@@ -333,32 +333,44 @@ export default function Testimonials() {
               </button>
             </div>
 
-            <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-3">
-                <h4 className="text-lg font-medium">{selectedReview.title}</h4>
-                <p className="text-gray-700 whitespace-pre-line">{selectedReview.comment}</p>
-                <div className="text-sm text-gray-400 mt-2">Опубликовано: {new Date(selectedReview.created_at).toLocaleDateString()}</div>
-              </div>
-
+            {/* Content area with inner scroll if large */}
+            <div className="p-6 overflow-y-auto max-h-[70vh]">
+              {/* If there is an image, use two-column layout on md+; otherwise single column with full-width text */}
               {selectedReview.photo_path ? (
-                <div className="w-full">
-                  {/* Set explicit image size for consistent layout; responsive via CSS */}
-                  <Image
-                    src={`${APIURLIMG}/${selectedReview.photo_path}`}
-                    alt={`Фото от ${selectedReview.name}`}
-                    width={900}
-                    height={600}
-                    className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-medium">{selectedReview.title}</h4>
+                    <p className="text-gray-700 whitespace-pre-wrap break-words">{selectedReview.comment}</p>
+                    <div className="text-sm text-gray-400 mt-2">
+                      Опубликовано: {new Date(selectedReview.created_at).toLocaleDateString()}
+                    </div>
+                    <div className="text-sm text-gray-400">Последнее обновление: {new Date(selectedReview.updated_at).toLocaleDateString()}</div>
+                  </div>
+
+                  <div className="w-full flex items-center justify-center">
+                    <Image
+                      src={`${APIURLIMG}/${selectedReview.photo_path}`}
+                      alt={`Фото от ${selectedReview.name}`}
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto max-h-[60vh] object-cover rounded-lg"
+                    />
+                  </div>
                 </div>
               ) : (
-                <div className="flex items-center justify-center bg-gray-50 rounded-lg h-64 sm:h-80 md:h-96">
-                  <span className="text-gray-400">Нет фото</span>
+                <div className="space-y-3">
+                  <h4 className="text-lg font-medium">{selectedReview.title}</h4>
+                  <p className="text-gray-700 whitespace-pre-wrap break-words">{selectedReview.comment}</p>
+                  <div className="text-sm text-gray-400 mt-2">
+                    Опубликовано: {new Date(selectedReview.created_at).toLocaleDateString()}
+                  </div>
+                  <div className="text-sm text-gray-400">Последнее обновление: {new Date(selectedReview.updated_at).toLocaleDateString()}</div>
                 </div>
               )}
             </div>
 
-            <div className="p-4 flex justify-end">
+            {/* Footer */}
+            <div className="p-4 flex justify-end border-t border-[#ccc]">
               <button
                 onClick={() => setSelectedReview(null)}
                 className="px-4 py-2 bg-[#AB4A1F] text-white rounded-md hover:opacity-90 transition"
