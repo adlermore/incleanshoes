@@ -75,14 +75,20 @@ export function CenteredSlider() {
     getWorks()
   }, [])
 
-  // ✅ Fancybox bind/unbind
   useEffect(() => {
-    Fancybox.bind('[data-fancybox="gallery"]', {})
+    const fancyOptions: any = {
+      Thumbs: false,
+      Toolbar: {
+        display: ['close'],
+      },
+    }
+
+    Fancybox.bind('[data-fancybox="gallery"]', fancyOptions)
 
     return () => {
       Fancybox.destroy()
     }
-  }, [])
+  }, []) // Re-bind when images change
 
   return (
     <div className="w-full mx-auto px-2 sm:px-4 pb-20 sm:pb-30">

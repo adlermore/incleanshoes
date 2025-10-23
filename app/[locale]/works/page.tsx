@@ -73,12 +73,14 @@ export default function Works() {
 
   // ✅ Fancybox bind/unbind
   useEffect(() => {
-    Fancybox.bind('[data-fancybox="gallery"]', {
+    const fancyOptions: any = {
       Thumbs: false,
       Toolbar: {
         display: ['close'],
       },
-    })
+    }
+
+    Fancybox.bind('[data-fancybox="gallery"]', fancyOptions)
 
     return () => {
       Fancybox.destroy()
