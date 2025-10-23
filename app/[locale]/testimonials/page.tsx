@@ -62,25 +62,6 @@ export default function Testimonials() {
   const overlayRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        setSelectedReview(null)
-      }
-    }
-
-    if (selectedReview) {
-      document.addEventListener('keydown', onKeyDown)
-      // prevent body scroll when modal open
-      document.body.style.overflow = 'hidden'
-    }
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = ''
-    }
-  }, [selectedReview])
-
-  useEffect(() => {
     async function getReviews() {
       try {
         const res = await fetch(`${APIURL}/getReviews`)

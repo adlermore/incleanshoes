@@ -7,7 +7,7 @@ import RequestForm from "@/components/home/RequestForm";
 import SeondHalf from "@/components/home/SeondHalf";
 import ServiceCalculate from "@/components/home/ServiceCalculate";
 import Services from "@/components/home/Services";
-import { ServicesSlider } from "@/components/home/ServicesSlider";
+import ServicesSlider from "@/components/home/ServicesSlider";
 import SmallContactForm from "@/components/home/SmallContactForm";
 import { Testimonials } from "@/components/home/Testimonials";
 import WhyUs from "@/components/home/WhyUs";

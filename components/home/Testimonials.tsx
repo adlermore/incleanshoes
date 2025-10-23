@@ -37,22 +37,6 @@ export function Testimonials() {
   const overlayRef = useRef<HTMLDivElement | null>(null)
   const [selectedReview, setSelectedReview] = useState<Review | null>(null)
 
-  // Keyboard (Escape) and body-scroll handling for modal
-  useEffect(() => {
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setSelectedReview(null)
-    }
-
-    if (selectedReview) {
-      document.addEventListener('keydown', onKeyDown)
-      document.body.style.overflow = 'hidden'
-    }
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = ''
-    }
-  }, [selectedReview])
 
   // Carousel data + loading state
   const [reviews, setReviews] = useState<Review[]>([])
@@ -83,9 +67,6 @@ export function Testimonials() {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
-
-  console.log('reviews', reviews);
-  
   return (
     <div className="relative">
       {/* Left Arrow */}

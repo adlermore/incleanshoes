@@ -5,6 +5,10 @@ import footerLogo from "@/public/images/footerLogo.png"
 import { JsonContext } from "@/context/JsonContext";
 import { useContext } from "react";
 import Link from "next/link";
+import IconFb from "../Icons/IconFb";
+import IconTelegram from "../Icons/IconTelegram";
+import IconInsta from "../Icons/IconInsta";
+import IconWhatsap from "../Icons/IconWhatsap";
 
 export default function Footer() {
   const { contacts } = useContext(JsonContext);
@@ -116,28 +120,28 @@ export default function Footer() {
                   className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <IconFb className="w5" />
                 </Link>
                 <Link
                   href={'https://t.me/' + contacts?.telegram || "#"}
                   className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
                   aria-label="Telegram"
                 >
-                  <Send className="w-5 h-5" />
+                  <IconTelegram className="w-5 h-5" />
                 </Link>
                 <Link
                   href={contacts?.instagram || "#"}
                   className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <IconInsta className="w-5 h-5" />
                 </Link>
                 <Link
                   href={'https://wa.me/' + contacts?.whatsapp || "#"}
                   className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
                   aria-label="WhatsApp"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <IconWhatsap className="w-5 h-5" />
                 </Link>
               </div>
             </div>

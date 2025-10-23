@@ -8,6 +8,8 @@ import { APIURLIMG } from '@/utils/constants'
 import PageLoader from '@/components/PageLoader/PageLoader'
 import clsx from 'clsx'
 import { useSearchParams } from 'next/navigation'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 type WorkPhoto = {
   id: number
@@ -28,7 +30,7 @@ export default function Works() {
   const [works, setWorks] = useState<WorkCategory[]>([])
   const [filteredPhotos, setFilteredPhotos] = useState<WorkPhoto[]>([])
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null)
-  const [visibleCount, setVisibleCount] = useState(3)
+  const [visibleCount, setVisibleCount] = useState(4)
   const [loading, setLoading] = useState(true)
 
   const searchParams = useSearchParams()
@@ -67,7 +69,21 @@ export default function Works() {
     }
 
     getWorks()
-  }, [categoryIdParam]) // Re-run if URL param changes
+  }, [categoryIdParam])
+
+  // ✅ Fancybox bind/unbind
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      Thumbs: false,
+      Toolbar: {
+        display: ['close'],
+      },
+    })
+
+    return () => {
+      Fancybox.destroy()
+    }
+  }, [filteredPhotos]) // Re-bind when images change
 
   const handleFilter = (categoryId: number) => {
     setSelectedCategory(categoryId)
@@ -82,8 +98,6 @@ export default function Works() {
 
   if (loading) return <PageLoader />
 
-  console.log('filteredPhotos', filteredPhotos);
-
   return (
     <div className="relative pb-20">
       {/* Banner */}
@@ -93,7 +107,7 @@ export default function Works() {
 
       {/* Intro */}
       <div className="custom_container">
-        <div className='ml-auto max-w-4xl '>
+        <div className="ml-auto max-w-4xl">
           <div className="mt-12 ml-auto text-right text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
             Познакомьтесь с нашей работой
           </div>
@@ -134,29 +148,24 @@ export default function Works() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                   {filteredPhotos.slice(0, visibleCount).map(photo => (
                     <div key={photo.id} className="group overflow-hidden relative">
-                      {/* Left Image */}
-                      <div className="relative w-full h-[250px] sm:h-[300px]">
-                        <Image
-                          src={APIURLIMG + photo.image_path_left}
-                          alt="Before"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      {/* Right Image */}
-                      {/* <div className="relative w-full h-[250px] sm:h-[300px] mt-3">
-                        <Image
-                          src={APIURLIMG + photo.image_path_right}
-                          alt="After"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div> */}
+                      <a
+                        href={APIURLIMG + photo.image_path_left}
+                        data-fancybox="gallery"
+                        data-caption="Before / After"
+                      >
+                        <div className="relative w-full h-[250px] sm:h-[300px]">
+                          <Image
+                            src={APIURLIMG + photo.image_path_left}
+                            alt="Before"
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      </a>
                     </div>
                   ))}
                 </div>
 
-                {/* Show More Button */}
                 {visibleCount < filteredPhotos.length && (
                   <div className="flex justify-center mt-10">
                     <button

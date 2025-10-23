@@ -61,7 +61,7 @@ function ContactMap({ isInnerPage = false }: { isInnerPage?: boolean }) {
   return (
     <div className={`w-full py-10 md:py-20 xl:py-20 !pb-0 ${isInnerPage ? '!pt-0' : ''} relative overflow-hidden bg-gray-50 `}>
       <div className={` mx-auto flex flex-col-reverse lg:flex-row items-stretch  relative z-10 ${isInnerPage ? 'lg:flex-row-reverse' : ''}`}>
-        <div className={`w-full lg:w-1/2 ${isInnerPage ? 'bg-[#8D8D8]' : 'bg-white'} items-center bg-opacity-90 p-6 md:p-8 -xl shadow-xl flex flex-col justify-center`}>
+        <div className={`w-full lg:w-1/2 ${isInnerPage ? 'bg-[#8D8D8]' : 'bg-white'} items-center bg-opacity-90 p-6 md:p-8 -xl shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] flex flex-col justify-center`}>
           <div className='max-w-[600px] w-full'>
             <h2 className="text-xl uppercase xl:text-3xl mb-3 leading-tight">
               {isInnerPage ? 'Оставьте заявку' : 'Расположение'}
@@ -132,7 +132,7 @@ function ContactMap({ isInnerPage = false }: { isInnerPage?: boolean }) {
             </form>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 min-h-[300px] h-[350px] md:h-[500px] xl:h-[700px] relative -xl overflow-hidden shadow-xl">
+        <div className="w-full lg:w-1/2 min-h-[300px] h-[350px] md:h-[500px] xl:h-[700px] relative -xl overflow-hidden shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)]">
           {contacts &&
             <YMaps>
               <Map

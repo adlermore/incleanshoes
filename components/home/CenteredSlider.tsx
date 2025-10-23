@@ -5,6 +5,8 @@ import useEmblaCarousel from "embla-carousel-react"
 import Image from "next/image"
 import api from "@/utils/api"
 import { APIURLIMG } from "@/utils/constants"
+import { Fancybox } from "@fancyapps/ui"
+import "@fancyapps/ui/dist/fancybox/fancybox.css"
 
 function SkeletonSlide() {
   return (
@@ -73,6 +75,15 @@ export function CenteredSlider() {
     getWorks()
   }, [])
 
+  // ✅ Fancybox bind/unbind
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {})
+
+    return () => {
+      Fancybox.destroy()
+    }
+  }, [])
+
   return (
     <div className="w-full mx-auto px-2 sm:px-4 pb-20 sm:pb-30">
       <div className="overflow-hidden" ref={emblaRef}>
@@ -80,33 +91,39 @@ export function CenteredSlider() {
           {loading
             ? Array.from({ length: 6 }).map((_, idx) => <SkeletonSlide key={idx} />)
             : images.map((image, index) => {
-              const offset = Math.abs(index - selectedIndex)
-              const isCenter = offset === 0
+                const offset = Math.abs(index - selectedIndex)
+                const isCenter = offset === 0
 
-              return (
-                <div
-                  key={index}
-                  className={`flex-[0_0_60%] sm:flex-[0_0_33%] md:flex-[0_0_25%]  min-w-0 pl-2 sm:pl-4 py-6 sm:py-8 ${isCenter ? "z-20" : "z-0"}`}
-                >
+                return (
                   <div
-                    className={`relative aspect-[1/0.7] overflow-hidden transition-all duration-500 ease-out ${isCenter
-                        ? "scale-120 opacity-100 z-999 bg-white"
-                        : "scale-100  z-0 filter-[brightness(0.6)]"
-                      }`}
+                    key={index}
+                    className={`flex-[0_0_60%] sm:flex-[0_0_33%] md:flex-[0_0_25%] min-w-0 pl-2 sm:pl-4 py-6 sm:py-8 ${
+                      isCenter ? "z-20" : "z-0"
+                    }`}
                   >
-                    <Image
-                      src={APIURLIMG + image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, (max-width: 1024px) 40vw, 33vw"
-                      priority={index < 5}
-                      unoptimized
-                    />
+                    <a
+                      href={APIURLIMG + image.src}
+                      data-fancybox="gallery"
+                      data-caption={image.alt}
+                      className={`relative aspect-[1/0.7] overflow-hidden transition-all duration-500 ease-out block ${
+                        isCenter
+                          ? "scale-120 opacity-100 z-999 bg-white"
+                          : "scale-100 z-0 brightness-75"
+                      }`}
+                    >
+                      <Image
+                        src={APIURLIMG + image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, (max-width: 1024px) 40vw, 33vw"
+                        priority={index < 5}
+                        unoptimized
+                      />
+                    </a>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
         </div>
       </div>
 
@@ -116,10 +133,11 @@ export function CenteredSlider() {
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`w-2 h-2 rounded-full bg-[#214951] transition-all duration-300 ${selectedIndex === index
+            className={`w-2 h-2 rounded-full bg-[#214951] transition-all duration-300 ${
+              selectedIndex === index
                 ? "bg-foreground w-8"
                 : "bg-foreground/30 hover:bg-foreground/50"
-              }`}
+            }`}
             aria-label={`Go to slide ${index + 1}`}
             disabled={loading}
           />

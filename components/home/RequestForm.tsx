@@ -81,7 +81,7 @@ function RequestForm() {
         />
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-full bg-[#214951] shadow-xl  md:max-w-1/2 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[#214951] shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] md:max-w-1/2 z-0"></div>
       <div className="custom_container h-full text-white flex items-center z-10 relative">
         <div className="md:max-w-1/2 md:pr-20">
           <h2 className="text-xl uppercase xl:text-3xl  mb-3 leading-tight">

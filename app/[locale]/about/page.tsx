@@ -3,6 +3,7 @@ import React from 'react'
 import about1 from '@/public/images/about1.png'
 import about2 from '@/public/images/about2.png'
 import aboutBanner from '@/public/images/aboutBanner.png'
+import history from '@/public/images/history.png'
 
 function AboutUs() {
   return (
@@ -29,11 +30,12 @@ function AboutUs() {
         <div className=" mt- flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-screen">
             <Image
-              src={about1}
+              src={history}
               alt="Craftsperson working on leather"
               fill
               className="object-cover"
               priority
+              unoptimized
             />
           </div>
           <div className="w-full lg:w-1/2 bg-[#f5f4f4] flex flex-col justify-between p-4 lg:p-16 xl:p-24">
