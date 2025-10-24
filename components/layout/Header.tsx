@@ -39,6 +39,10 @@ function Header() {
 
 
   useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     async function getContacts() {
       try {
         const data = await api.get("/getContacts");
@@ -123,12 +127,12 @@ function Header() {
       {/* Mobile menu drawer */}
       <div className={`mobile_menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile_links">
-          <Link href='/#'>Услуги</Link>
-          <Link href='/#'>Работы</Link>
-          <Link href='/#'>Контакты</Link>
-          <Link href='/#'>О нас</Link>
-          <Link href='/#'>Цены</Link>
-          <Link href='/#'>FAQ</Link>
+          <Link href='/services'>Услуги</Link>
+          <Link href='/works'>Работы</Link>
+          <Link href='/contacts'>Контакты</Link>
+          <Link href='/about'>О нас</Link>
+          <Link href='/prices'>Цены</Link>
+          <Link href='/faq'>FAQ</Link>
         </div>
       </div>
     </header>

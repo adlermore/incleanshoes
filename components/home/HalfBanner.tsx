@@ -6,7 +6,8 @@ function HalfBanner() {
     <div className="xl:py-30 md:py-20 py-10 w-full relative">
       {/* Background video */}
       <video
-        src='https://cleanshoes.proxiesseller.cc/storage/video/mainVideo.mp4'
+        // src='https://cleanshoes.proxiesseller.cc/storage/video/mainVideo.mp4'
+        src='https://cleanshoes.proxiesseller.cc/storage/video/IMG_2220.MOV'
         autoPlay
         muted
         loop
