@@ -20,7 +20,7 @@ function AboutUs() {
         <div className="mt-12 text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
           О нас
         </div>
-        <div className="mt-6 mb-12 pb-20 text-base sm:text-lg leading-8 text-gray-700">
+        <div className="mt-6 mb-12 pb-5 text-base sm:text-lg leading-8 text-gray-700">
           Мы заботимся о вашей одежде, обуви и аксессуарах так же, как о своих.
           <br />
           Наша цель — вернуть вещам свежий вид и продлить их жизнь.

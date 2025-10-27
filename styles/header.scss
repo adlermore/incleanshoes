@@ -4,7 +4,7 @@
   z-index: 999;
   top: 0;
   background: white;
-  
+
   .mobile_sociels {
     display: none;
   }
@@ -14,12 +14,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 40px;
   }
 
   .header_logo {
     position: relative;
-    max-width: 220px;
+    max-width: 250px;
   }
 
   .lg_block {
@@ -99,6 +99,10 @@
       gap: 20px;
       height: 130px;
     }
+
+    .header_logo {
+      max-width: 200px;
+    }
   }
 
   // Responsive
@@ -131,6 +135,9 @@
       top: 80px;
     }
 
+    .header_logo {
+      max-width: 160px;
+    }
     .header_inner {
       padding: 0px;
       height: 80px;

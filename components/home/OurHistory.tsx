@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function OurHistory() {
   return (
-    <div className="min-h-screen mt-20 flex flex-col lg:flex-row">
+    <div className="min-h-screen sm:mt-20 mt-10 flex flex-col lg:flex-row">
       <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-screen">
         <Image
           src={history}
@@ -19,7 +19,7 @@ function OurHistory() {
 
       <div className="w-full lg:w-1/2 bg-[#f5f4f4] flex flex-col justify-between p-4 lg:p-16 xl:p-24">
         <div className="flex-1 flex flex-col justify-center">
-          <h1 className="text-[#000000] text-xl lg:text-2xl xl:text-3xl  tracking-wide mb-8 lg:mb-12">
+          <h1 className="text-[#000000] text-xl lg:text-2xl xl:text-3xl  tracking-wide mb-4 lg:mb-12">
             НАША ИСТОРИЯ
           </h1>
 

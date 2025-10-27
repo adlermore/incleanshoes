@@ -64,7 +64,7 @@ export default function Page() {
         <div className="mt-12 text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
           Познакомьтесь с нашими услугами
         </div>
-        <div className="mt-6 mb-12 pb-20 text-base sm:text-lg leading-8 text-gray-700">
+        <div className="mt-6 mb-12 sm:pb-20 pb-3 text-base sm:text-lg leading-8 text-gray-700">
           Мы предлагаем профессиональную химчистку и комплексный уход за вашими вещами.
           <br />
           Наши специалисты заботятся о качестве и сохраняют безупречный вид каждой детали.
@@ -74,7 +74,7 @@ export default function Page() {
       {/* Service List */}
       {services.length > 0 ? (
         <>
-          <div className="space-y-16  sm:space-y-30">
+          <div className="space-y-16  sm:space-y-20">
             {services.slice(0, visibleCount).map((service, index) => (
               <div
                 key={index}
@@ -84,7 +84,7 @@ export default function Page() {
                 } items-stretch w-full`}
               >
                 {/* Image Section */}
-                <div className="relative w-full md:max-w-[45%] ">
+                <div className="relative w-full md:max-w-[45%] min-h-[300px] h-[300px] sm:h-[400px]">
                   <Image
                     src={APIURLIMG + service.image_path}
                     alt={service.name}
@@ -94,12 +94,12 @@ export default function Page() {
                 </div>
 
                 {/* Content Section */}
-                <div className="flex flex-col justify-center w-full  bg-[#F5F4F4] px-6 sm:px-20 py-20 sm:py-16">
-                  <h3 className="text-xl sm:text-2xl pb-5 font-medium uppercase text-center md:text-left">
+                <div className="flex flex-col justify-center w-full  bg-[#F5F4F4] px-6 sm:px-20 py-10 sm:py-16">
+                  <h3 className="text-xl sm:text-2xl pb-5 font-medium uppercase sm:text-center md:text-left">
                     {service.name}
                   </h3>
                   <div
-                    className="mt-6 text-base sm:text-lg leading-7 text-gray-700"
+                    className="sm:mt-6 text-base sm:text-lg leading-7 text-gray-700"
                     dangerouslySetInnerHTML={{ __html: service.description }}
                   />
                   <div className={`${index % 2 !== 0 ? 'md:justify-start' : ''} flex mt-10 justify-center md:justify-end`}>

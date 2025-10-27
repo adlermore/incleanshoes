@@ -8,7 +8,7 @@ function WhyUs() {
   return (
     <div className="bg-[#f5f4f4] sm:py-20 py-6 mt-16 sm:px-6 lg:px-12">
       <div className='custom_container'>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="lg:grid lg:grid-cols-2 flex flex-col-reverse gap-12 lg:gap-16 items-start">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-[#ffffff]  p-6 shadow-sm duration-300 hover:shadow-md">
               <div className="w-16 h-16 flex items-center justify-center bg-[#ab4a1f] rounded mb-4" >
@@ -48,7 +48,7 @@ function WhyUs() {
               </p>
             </div>
           </div>
-          <div className="lg:pt-8 sm:pl-10">
+          <div className="lg:pt-8 lg:pl-10">
             <h2 className="text-[#000000] sm:text-4xl text-lg lg:text-3xl  mb-8 tracking-wider">
               ПОЧЕМУ
               <br />

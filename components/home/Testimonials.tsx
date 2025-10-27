@@ -171,7 +171,7 @@ export function Testimonials() {
             </div>
 
             {/* Scrollable content area */}
-            <div className="p-6 overflow-y-auto max-h-[70vh]">
+            <div className="p-6 overflow-y-auto max-h-[58vh]">
               {selectedReview.photo_path ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">

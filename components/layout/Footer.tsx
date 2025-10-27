@@ -1,7 +1,7 @@
 'use client'
-import { Facebook, Send, Instagram, MessageCircle } from "lucide-react"
 import Image from "next/image"
-import footerLogo from "@/public/images/footerLogo.png"
+// import footerLogo from "@/public/images/footerLogo.png"
+import footerLogo from "@/public/images/footerLogo.svg"
 import { JsonContext } from "@/context/JsonContext";
 import { useContext } from "react";
 import Link from "next/link";
@@ -13,15 +13,15 @@ import IconWhatsap from "../Icons/IconWhatsap";
 export default function Footer() {
   const { contacts } = useContext(JsonContext);
   return (
-    <footer className="bg-[#281822]  text-white px-8 py-16 p-15">
+    <footer className="bg-[#281822]  text-white sm:px-8 px-5 sm:py-16 py-8 ">
       <div className="custom_container">
         {/* Logo Section */}
-        <div className="mb-16">
+        <div className="md:mb-16 mb-10">
           <Image
             src={footerLogo}
             alt="Logo"
-            width={200}
-            height={50}
+            width={250}
+            height={80}
             priority
           />
         </div>
@@ -29,7 +29,7 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 xl:gap-12 mb-16">
           {/* О НАС Column */}
-          <div>
+          <div className="mb-8 md:mb-0">
             <h3 className="text-lg font-medium mb-6">О НАС</h3>
             <ul className="space-y-3">
               <li>
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
 
           {/* УСЛУГИ Column */}
-          <div>
+          <div className="mb-8 md:mb-0">
             <h3 className="text-lg font-medium mb-6">УСЛУГИ</h3>
             <ul className="space-y-3">
               <li>
@@ -78,8 +78,8 @@ export default function Footer() {
           </div>
 
           {/* Middle Column */}
-          <div>
-            <ul className="space-y-3 mt-12">
+          <div className="mb-8 md:mb-0">
+            <ul className="space-y-3 md:mt-12">
               <li>
                 <a href="/privacy-policy" className="text-[#a2a2a2] hover:text-white transition-colors">
                   Конфиденциальность
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Column */}
-          <div>
+          <div className="mb-8 md:mb-0">
             <div className="space-y-6">
               <a href={`tel:${contacts?.phone}`} className="block text-lg hover:text-[#ab4a1f] transition-colors">
                 {contacts?.phone}

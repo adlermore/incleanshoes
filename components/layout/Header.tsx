@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Twirl as Hamburger } from 'hamburger-react'
 import "@/styles/header.scss"
 import Image from 'next/image';
-import headerLogo from '@/public/images/header_logo.png'
+// import headerLogo from '@/public/images/header_logo.png'
+import headerLogo from '@/public/images/header_logo.svg'
 import { usePathname, useRouter } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import IconHeaderTelegram from '../Icons/IconHeaderTelegram';
@@ -79,8 +80,8 @@ function Header() {
           <div className='header_logo'>
             <Link href='/' className='z-20 mobile:mx-auto'>
               <Image
-                width={200}
-                height={50}
+                width={260}
+                height={80}
                 src={headerLogo}
                 alt="Logo"
                 priority={true}

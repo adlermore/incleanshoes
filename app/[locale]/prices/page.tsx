@@ -75,7 +75,7 @@ export default function Prices() {
         <div className="flex flex-col md:flex-row gap-10">
           {/* Categories Sidebar */}
           <div className="md:w-1/3 w-full">
-            <div className="flex md:flex-col flex-wrap gap-4">
+            <div className="flex flex-col flex-wrap gap-4">
               {services.map(category => (
                 <button
                   key={category.id}
@@ -96,7 +96,7 @@ export default function Prices() {
           {/* Services List */}
           <div className="md:w-2/3 w-full">
             {activeCategoryData ? (
-              <div className="bg-white  shadow-sm border border-gray-100 p-6">
+              <div className="bg-white  shadow-sm border border-gray-100 sm:p-6 p-3">
                 <h3 className="text-xl font-semibold text-[#AB4A1F] mb-4">
                   {activeCategoryData.name}
                 </h3>
@@ -108,7 +108,7 @@ export default function Prices() {
                       className="flex justify-between py-3 text-gray-700"
                     >
                       <span>{service.name}</span>
-                      <span className="font-medium">от {service.price} ₽ </span>
+                      <span className="font-medium text-[#AB4A1F] min-w-[75px] whitespace-nowrap flex items-center justify-end">от {service.price} ₽ </span>
                     </div>
                   ))}
                 </div>

@@ -110,10 +110,10 @@ export default function Works() {
       {/* Intro */}
       <div className="custom_container">
         <div className="ml-auto max-w-4xl">
-          <div className="mt-12 ml-auto text-right text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
+          <div className="mt-12 ml-auto sm:text-right text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
             Познакомьтесь с нашей работой
           </div>
-          <div className="mt-6 text-right mb-12 text-base sm:text-lg leading-8 text-gray-700">
+          <div className="mt-6 sm:text-right mb-12 text-base sm:text-lg leading-8 text-gray-700">
             Обувь требует особого ухода, чтобы надолго сохранить опрятный внешний вид и форму.
             Мы аккуратно очищаем, восстанавливаем и придаём свежесть вашей паре.
           </div>
@@ -122,7 +122,7 @@ export default function Works() {
         {/* Layout */}
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Sidebar */}
-          <div className="lg:w-1/4 flex lg:flex-col gap-4 flex-wrap justify-center lg:justify-start">
+          <div className="lg:w-1/4 flex flex-col gap-4 flex-wrap justify-center lg:justify-start">
             {works.map(category => (
               <button
                 key={category.id}

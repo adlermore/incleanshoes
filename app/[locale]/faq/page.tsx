@@ -94,7 +94,7 @@ export default function Faq() {
           Часто задаваемые вопросы
         </div>
 
-        <div className="grid mt-20 py-10 md:grid-cols-2 gap-8">
+        <div className="grid sm:mt-20 py-10 pt-4 md:grid-cols-2 gap-8">
           {faqData.map((item, index) => (
             <div
               key={index}
