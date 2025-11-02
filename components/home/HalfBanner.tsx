@@ -16,11 +16,11 @@ function HalfBanner() {
       />
 
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full sm:bg-[#ffffffa8] bg-black/80 shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] md:max-w-1/2 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-full sm:bg-[#ffffffa8] bg-black/80 shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] 2xl:max-w-[45%] md:max-w-[38%] z-0"></div>
 
       {/* Content */}
       <div className="custom_container h-full flex items-center z-10 relative text-white sm:text-black">
-        <div className="md:max-w-1/2 md:pr-20">
+        <div className="2xl:max-w-[45%] md:max-w-[38%] md:pr-20">
           <h1 className="text-xl xl:text-3xl mb-3 leading-tight">
             ПРЕМИУМ ХИМЧИСТКА
             <br />

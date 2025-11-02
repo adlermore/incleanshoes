@@ -42,7 +42,7 @@ function Services() {
         : categories.map((category) => (
           <Link
             key={category.id}
-            href={`/services#service_${category.id}`}
+            href={`/services?service=service_${category.id}`}
             className="group w-full relative sm:h-[400px] h-[200px] overflow-hidden"
           >
             <div className="w-full h-full relative">

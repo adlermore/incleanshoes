@@ -45,7 +45,7 @@ function ContactUs() {
         </div>
       </div>
       <div className='custom_container'>
-        <div className='grid lg:grid-cols-4 md:grid-cols-2 py-20 gap-6'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 py-20 md:px-30 gap-6 '>
           <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconLocation />
             <h2 className='font-semibold mt-5 uppercase my-2'>In Clean Shoes</h2>
@@ -59,9 +59,9 @@ function ContactUs() {
           <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconPhone />
             <h2 className='font-semibold mt-5 my-2 uppercase'>Phone</h2>
-            <p>Телефон: {contacts?.phone}</p>
+            <Link href={`tel:${contacts?.phone}`}>Телефон: {contacts?.phone}</Link>
           </div>
-          <div className='border border-[#D9D9D9] px-6 py-5 '>
+          {/* <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconGlobal />
             <h2 className='font-semibold mt-5 my-2 uppercase'>social media</h2>
             <div className='flex gap-4 mt-6 items-center'>
@@ -87,7 +87,7 @@ function ContactUs() {
                 <Youtube />
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <ContactMap isInnerPage={true} />

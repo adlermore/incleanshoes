@@ -1,62 +1,67 @@
 'use client'
 
-import api from '@/utils/api'
 import React, { useEffect, useState } from 'react'
-import serviceBanner from '@/public/images/serviceBanner.png'
 import Image from 'next/image'
-import { APIURLIMG } from '@/utils/constants'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import api from '@/utils/api'
+import { APIURLIMG } from '@/utils/constants'
+import serviceBanner from '@/public/images/serviceVanner.png'
 import PageLoader from '@/components/PageLoader/PageLoader'
 
 type Service = {
+  id: number
   name: string
   image_path: string
   description: string
-  id: number
 }
 
 export default function Page() {
   const [services, setServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(true)
-  const [visibleCount, setVisibleCount] = useState(2)
+  const [visibleCount, setVisibleCount] = useState(8)
 
+  const searchParams = useSearchParams()
+  const serviceParam = searchParams.get('service') // e.g., "service_8"
+
+  // Fetch services
   useEffect(() => {
-    async function getServices() {
+    async function fetchServices() {
       try {
-        const response = await api.get("/getCategories")
+        const response = await api.get('/getCategories')
         if (Array.isArray(response)) {
           setServices(response as Service[])
         } else {
           setServices([])
         }
       } catch (error) {
-        console.error("Failed to fetch services:", error)
+        console.error('Failed to fetch services:', error)
       } finally {
-        setTimeout(() => {
-          setLoading(false)
-        }, 500);
+        setTimeout(() => setLoading(false), 500)
       }
     }
-
-    getServices()
+    fetchServices()
   }, [])
 
-  if (loading) return <PageLoader />
+  // Scroll to service if param is present
+  useEffect(() => {
+    if (!loading && serviceParam) {
+      const el = document.getElementById(serviceParam)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }
+  }, [loading, serviceParam, services])
 
-  const handleShowMore = () => {
-    setVisibleCount(prev => prev + 2)
-  }
+  const handleShowMore = () => setVisibleCount(prev => prev + 2)
+
+  if (loading) return <PageLoader />
 
   return (
     <div className="relative pb-20">
       {/* Banner */}
       <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
-        <Image
-          src={serviceBanner}
-          fill
-          alt="Service Banner"
-          className="object-cover"
-        />
+        <Image src={serviceBanner} fill alt="Service Banner" className="object-cover" />
       </div>
 
       {/* Intro */}
@@ -71,19 +76,19 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Service List */}
+      {/* Services */}
       {services.length > 0 ? (
         <>
-          <div className="space-y-16  sm:space-y-20">
+          <div className="space-y-16 sm:space-y-20">
             {services.slice(0, visibleCount).map((service, index) => (
               <div
-                key={index}
+                key={service.id}
                 id={`service_${service.id}`}
                 className={`flex flex-col md:flex-row ${
                   index % 2 !== 0 ? 'md:flex-row-reverse' : ''
                 } items-stretch w-full`}
               >
-                {/* Image Section */}
+                {/* Image */}
                 <div className="relative w-full md:max-w-[45%] min-h-[300px] h-[300px] sm:h-[400px]">
                   <Image
                     src={APIURLIMG + service.image_path}
@@ -93,8 +98,8 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Content Section */}
-                <div className="flex flex-col justify-center w-full  bg-[#F5F4F4] px-6 sm:px-20 py-10 sm:py-16">
+                {/* Content */}
+                <div className="flex flex-col justify-center w-full bg-[#F5F4F4] px-6 sm:px-20 py-10 sm:py-16">
                   <h3 className="text-xl sm:text-2xl pb-5 font-medium uppercase sm:text-center md:text-left">
                     {service.name}
                   </h3>
@@ -102,7 +107,11 @@ export default function Page() {
                     className="sm:mt-6 text-base sm:text-lg leading-7 text-gray-700"
                     dangerouslySetInnerHTML={{ __html: service.description }}
                   />
-                  <div className={`${index % 2 !== 0 ? 'md:justify-start' : ''} flex mt-10 justify-center md:justify-end`}>
+                  <div
+                    className={`${
+                      index % 2 !== 0 ? 'md:justify-start' : ''
+                    } flex mt-10 justify-center md:justify-end`}
+                  >
                     <Link
                       href={`/works?category_id=${service.id}`}
                       className="text-black border border-black uppercase duration-300 hover:bg-white px-6 py-3 w-full sm:w-auto text-center"
@@ -120,7 +129,7 @@ export default function Page() {
             <div className="flex justify-center mt-16">
               <button
                 onClick={handleShowMore}
-                className="bg-black text-white uppercase px-8 py-4 cursor-pointer  hover:bg-[#AB4A1F] transition"
+                className="bg-black text-white uppercase px-8 py-4 hover:bg-[#AB4A1F] transition"
               >
                 Посмотреть больше
               </button>

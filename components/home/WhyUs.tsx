@@ -24,7 +24,7 @@ function WhyUs() {
               <div className="w-16 h-16 bg-[#ab4a1f] rounded mb-4 flex items-center justify-center">
                 <IconWhy2 />
               </div>
-              <h3 className="text-[#000000] text-xl  mb-3">ЦЕНА</h3>
+              <h3 className="text-[#000000] text-xl uppercase  mb-3">стоимость услуг</h3>
               <p className="text-[#52425c] text-sm leading-relaxed">
                 Прозрачная стоимость без скрытых платежей. Вы заранее знаете, сколько будет стоить услуга.
               </p>

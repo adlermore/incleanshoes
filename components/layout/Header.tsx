@@ -80,8 +80,8 @@ function Header() {
           <div className='header_logo'>
             <Link href='/' className='z-20 mobile:mx-auto'>
               <Image
-                width={260}
-                height={80}
+                width={250}
+                height={84}
                 src={headerLogo}
                 alt="Logo"
                 priority={true}
@@ -107,7 +107,7 @@ function Header() {
             </div>
             <div className='flex items-center half_menu justify-around pt-3 font-medium text-[15px] uppercase ml-4'>
               <Link href='/about'>О нас</Link>
-              <Link href='/prices'>Цены</Link>
+              <Link href='/prices'>Прайс</Link>
               <Link href='/faq'>FAQ</Link>
             </div>
           </div>
@@ -132,7 +132,7 @@ function Header() {
           <Link href='/works'>Работы</Link>
           <Link href='/contacts'>Контакты</Link>
           <Link href='/about'>О нас</Link>
-          <Link href='/prices'>Цены</Link>
+          <Link href='/prices'>Прайс</Link>
           <Link href='/faq'>FAQ</Link>
         </div>
       </div>

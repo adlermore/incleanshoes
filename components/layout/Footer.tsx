@@ -34,11 +34,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a href="/about" className="text-[#a2a2a2] hover:text-white transition-colors">
-                  О компании
+                  О нас
                 </a>
               </li>
               <li>
-                <a href="/about" className="text-[#a2a2a2] hover:text-white transition-colors">
+                <a href="/works" className="text-[#a2a2a2] hover:text-white transition-colors">
                   Кейсы
                 </a>
               </li>
@@ -61,12 +61,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a href="/prices" className="text-[#a2a2a2] hover:text-white transition-colors">
-                  Цены
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-[#a2a2a2] hover:text-white transition-colors">
-                  Фотогалерея
+                  Стоимость услуг
                 </a>
               </li>
               <li>
@@ -83,11 +78,6 @@ export default function Footer() {
               <li>
                 <a href="/privacy-policy" className="text-[#a2a2a2] hover:text-white transition-colors">
                   Конфиденциальность
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-[#a2a2a2] hover:text-white transition-colors">
-                  Доставка
                 </a>
               </li>
               <li>
@@ -115,30 +105,30 @@ export default function Footer() {
 
               {/* Social Icons */}
               <div className="flex gap-4 pt-4">
-                <Link
+                {/* <Link
                   href={contacts?.facebook || "#"}
-                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
+                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-sm hover:bg-[#8a3a19] transition-colors"
                   aria-label="Facebook"
                 >
                   <IconFb className="w5" />
-                </Link>
+                </Link> */}
                 <Link
                   href={'https://t.me/' + contacts?.telegram || "#"}
-                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
+                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-sm hover:bg-[#8a3a19] transition-colors"
                   aria-label="Telegram"
                 >
                   <IconTelegram className="w-5 h-5" />
                 </Link>
-                <Link
+                {/* <Link
                   href={contacts?.instagram || "#"}
-                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
+                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-sm hover:bg-[#8a3a19] transition-colors"
                   aria-label="Instagram"
                 >
                   <IconInsta className="w-5 h-5" />
-                </Link>
+                </Link> */}
                 <Link
                   href={'https://wa.me/' + contacts?.whatsapp || "#"}
-                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-md hover:bg-[#8a3a19] transition-colors"
+                  className="w-10 h-10 bg-[#ab4a1f] flex items-center justify-center rounded-sm hover:bg-[#8a3a19] transition-colors"
                   aria-label="WhatsApp"
                 >
                   <IconWhatsap className="w-5 h-5" />

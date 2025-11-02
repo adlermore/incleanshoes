@@ -25,16 +25,17 @@ function OurHistory() {
 
           <div className="space-y-6 text-[#000000] text-base lg:text-lg leading-relaxed">
             <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-              laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-            </p>
-
-            <p>
-              Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore
-              eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-              zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer
-              adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              Всем привет! Меня зовут Армен Хачатрян — я реставратор изделий из кожи.
+              <br />
+              <br />
+              Моя история с кожей началась ещё в детстве.
+              Тогда я впервые почувствовал, как этот материал «дышит», как в нём живёт память — о руках, что его носили, о моментах, что в нём пережили.
+              С 16 лет я начал изучать ремесло всерьёз: учился у разных мастеров, разбирал старинные сумки, восстанавливал потрёпанные чемоданы, шил, клеил, полировал — снова и снова.
+              <br />
+              <br />
+              Сегодня я умею работать со всеми типами кожаных изделий: от винтажных кошельков и семейных альбомов до дизайнерских сумок и эксклюзивной обуви.
+              Но для меня никогда не была важна стоимость вещи.
+              Главное — её душа. Её история. И глаза человека, который приносит мне то, что дорого его сердцу.
             </p>
           </div>
         </div>
