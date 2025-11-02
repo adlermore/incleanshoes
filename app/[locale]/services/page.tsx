@@ -89,7 +89,7 @@ export default function Page() {
                 } items-stretch w-full`}
               >
                 {/* Image */}
-                <div className="relative w-full md:max-w-[45%] min-h-[300px] h-[300px] sm:h-[400px]">
+                <div className="relative w-full md:max-w-[45%] min-h-[300px]">
                   <Image
                     src={APIURLIMG + service.image_path}
                     alt={service.name}
