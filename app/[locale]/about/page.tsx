@@ -73,6 +73,7 @@ function AboutUs() {
               alt="Craftsperson working on leather"
               fill
               className="object-cover"
+              unoptimized
               priority
             />
           </div>

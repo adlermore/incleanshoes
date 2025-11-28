@@ -111,7 +111,7 @@ export default function Works() {
       <div className="custom_container">
         <div className="ml-auto max-w-4xl">
           <div className="mt-12 ml-auto sm:text-right text-2xl sm:text-3xl uppercase pb-4 border-b border-[#AB4A1F] max-w-fit">
-            Познакомьтесь с нашей работой
+            Ознакомьтесь с нашими работами
           </div>
           <div className="mt-6 sm:text-right mb-12 text-base sm:text-lg leading-8 text-gray-700">
             Обувь требует особого ухода, чтобы надолго сохранить опрятный внешний вид и форму.

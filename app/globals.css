@@ -68,6 +68,17 @@ body {
   margin: 0 auto;
 }
 
+.hovered_video:hover{
+  .wrapped_content{
+    opacity: 1;
+  }
+}
+
+.wrapped_content{
+  opacity: 0;
+  transition: 0.3s;
+}
+
 .half_menu a {
   transition: 0.3s;
 

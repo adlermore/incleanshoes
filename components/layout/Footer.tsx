@@ -38,11 +38,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/works" className="text-[#a2a2a2] hover:text-white transition-colors">
-                  Кейсы
-                </a>
-              </li>
-              <li>
                 <a href="/testimonials" className="text-[#a2a2a2] hover:text-white transition-colors">
                   Отзывы
                 </a>

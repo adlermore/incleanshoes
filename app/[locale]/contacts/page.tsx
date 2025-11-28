@@ -8,7 +8,6 @@ import IconLocation from '@/components/Icons/IconLocation'
 import IconEmail from '@/components/Icons/IconEmail'
 import IconPhone from '@/components/Icons/IconPhone'
 import IconGlobal from '@/components/Icons/IconGlobal'
-import { Facebook, Instagram, Youtube } from 'lucide-react'
 import Link from 'next/link'
 
 function ContactUs() {
@@ -54,12 +53,12 @@ function ContactUs() {
           <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconEmail />
             <h2 className='font-semibold mt-5 my-2 uppercase'>e-mail</h2>
-            <p>Email: {contacts?.email}</p>
+            <p>{contacts?.email}</p>
           </div>
           <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconPhone />
-            <h2 className='font-semibold mt-5 my-2 uppercase'>Phone</h2>
-            <Link href={`tel:${contacts?.phone}`}>Телефон: {contacts?.phone}</Link>
+            <h2 className='font-semibold mt-5 my-2 uppercase'>Телефон</h2>
+            <Link href={`tel:${contacts?.phone}`}>{contacts?.phone}</Link>
           </div>
           {/* <div className='border border-[#D9D9D9] px-6 py-5 '>
             <IconGlobal />

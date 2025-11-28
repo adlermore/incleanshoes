@@ -3,7 +3,7 @@ import React from "react";
 
 function HalfBanner() {
   return (
-    <div className="xl:py-30 md:py-20 py-10 w-full relative">
+    <div className="xl:py-30 md:py-20 py-10 w-full relative hovered_video">
       {/* Background video */}
       <video
         // src='https://cleanshoes.proxiesseller.cc/storage/video/mainVideo.mp4'
@@ -16,10 +16,10 @@ function HalfBanner() {
       />
 
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full sm:bg-[#ffffffa8] bg-black/80 shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] 2xl:max-w-[45%] md:max-w-[38%] z-0"></div>
+      <div className="absolute top-0 left-0 wrapped_content w-full h-full sm:bg-[#ffffffa8] bg-black/80 shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)] 2xl:max-w-[45%] md:max-w-[38%] z-0"></div>
 
       {/* Content */}
-      <div className="custom_container h-full flex items-center z-10 relative text-white sm:text-black">
+      <div className="custom_container h-full fle wrapped_content items-center z-10 relative text-white sm:text-black">
         <div className="2xl:max-w-[45%] md:max-w-[38%] md:pr-20">
           <h1 className="text-xl xl:text-3xl mb-3 leading-tight">
             ПРЕМИУМ ХИМЧИСТКА
