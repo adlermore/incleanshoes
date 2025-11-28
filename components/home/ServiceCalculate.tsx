@@ -165,7 +165,7 @@ function ServiceCalculate() {
                         ${isSelected ? "bg-white text-[#214851] border-white" : "bg-white border-gray-400"}
                       `}
                       >
-                        ✓
+                        {isSelected ? "✓" : ""}
                       </span>
                       <span>
                         {service.name} {service.price && `- ₽${service.price}`}
