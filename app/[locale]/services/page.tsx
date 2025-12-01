@@ -93,6 +93,7 @@ export default function Page() {
                   <Image
                     src={APIURLIMG + service.image_path}
                     alt={service.name}
+                    unoptimized
                     fill
                     className="object-cover"
                   />

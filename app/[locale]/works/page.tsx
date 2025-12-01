@@ -159,6 +159,7 @@ export default function Works() {
                           <Image
                             src={APIURLIMG + photo.image_path_left}
                             alt="Before"
+                            unoptimized
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                           />

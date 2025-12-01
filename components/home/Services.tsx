@@ -50,6 +50,7 @@ function Services() {
                 src={APIURLIMG + category.image_path}
                 alt={category.name}
                 fill
+                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
