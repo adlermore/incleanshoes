@@ -26,7 +26,7 @@ export function BeforeAfterSlider({ beforeImage, afterImage, title }: BeforeAfte
     <div className="relative w-full aspect-[4/2] overflow-hidden group">
       {/* After Image (Full) */}
       <div className="absolute inset-0">
-        <Image src={afterImage || "/placeholder.svg"} alt={`${title} - После`} fill className="object-cover" priority />
+        <Image src={afterImage || "/placeholder.svg"} unoptimized alt={`${title} - После`} fill className="object-cover" priority />
         <div className="absolute top-4 right-4 bg-accent bg-white rounded-xl shadow-xl text-accent-foreground px-3 py-1 text-sm font-medium">
           После
         </div>
@@ -34,7 +34,7 @@ export function BeforeAfterSlider({ beforeImage, afterImage, title }: BeforeAfte
 
       {/* Before Image (Clipped) */}
       <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}>
-        <Image src={beforeImage || "/placeholder.svg"} alt={`${title} - До`} fill className="object-cover" priority />
+        <Image src={beforeImage || "/placeholder.svg"} unoptimized alt={`${title} - До`} fill className="object-cover" priority />
         <div className="absolute top-4 left-4  bg-white rounded-xl shadow-xl  bg-foreground text-background px-3 py-1 text-sm font-medium">До</div>
       </div>
 
