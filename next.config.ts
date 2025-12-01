@@ -4,13 +4,34 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
   reactStrictMode: false,
   swcMinify: true,
+
   images: {
-    domains: [
-      'localhost',
-      'incleanshoes.ru',
-      'admin.incleanshoes.ru',
-      'api.incleanshoes.ru',
-      'cleanshoes.proxiesseller.cc',
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "localhost",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "incleanshoes.ru",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "admin.incleanshoes.ru",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.incleanshoes.ru",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cleanshoes.proxiesseller.cc",
+        pathname: "/**",
+      },
     ],
   },
 };
