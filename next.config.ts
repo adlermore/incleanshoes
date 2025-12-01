@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     domains: [
       'localhost',
       'incleanshoes.ru',
+      'admin.incleanshoes.ru',
       'api.incleanshoes.ru',
       'cleanshoes.proxiesseller.cc',
     ],
