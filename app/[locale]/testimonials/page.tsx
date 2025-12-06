@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
-import reviewsSection from '@/public/images/reviewsSection.png'
+import reviewsSection from '@/public/images/testimonials.jpg'
 import reviewSection from '@/public/images/reviewSection.png'
 import IconUser from '@/components/Icons/IconUser'
 import PageLoader from '@/components/PageLoader/PageLoader'
@@ -139,7 +139,7 @@ export default function Testimonials() {
     <div className="relative">
       {/* Banner */}
       <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[370px]">
-        <Image src={reviewsSection} fill alt="Reviews Banner" className="object-cover" />
+        <Image src={reviewsSection} fill alt="Reviews Banner" unoptimized className="object-cover" />
       </div>
 
       {/* Content */}

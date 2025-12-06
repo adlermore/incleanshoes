@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-import about1 from '@/public/images/about1.png'
 import about2 from '@/public/images/about2.png'
 import aboutBanner from '@/public/images/aboutBanner.png'
-import history from '@/public/images/history.png'
+import history from '@/public/images/history.jpg'
 
 function AboutUs() {
   return (

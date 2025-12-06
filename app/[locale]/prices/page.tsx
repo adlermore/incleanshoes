@@ -2,10 +2,9 @@
 
 import api from '@/utils/api'
 import React, { useEffect, useState } from 'react'
-import pricesSection from '@/public/images/pricesSection.png'
+import pricesSection from '@/public/images/pricesSection.jpg'
 import Image from 'next/image'
 import PageLoader from '@/components/PageLoader/PageLoader'
-import { APIURLIMG } from '@/utils/constants'
 import clsx from 'clsx'
 
 type Service = {
@@ -59,6 +58,7 @@ export default function Prices() {
           fill
           alt="Prices Banner"
           className="object-cover"
+          unoptimized
         />
       </div>
 

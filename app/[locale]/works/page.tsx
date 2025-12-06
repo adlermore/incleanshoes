@@ -104,7 +104,7 @@ export default function Works() {
     <div className="relative pb-20">
       {/* Banner */}
       <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
-        <Image src={workSection} fill alt="Work Banner" className="object-cover" />
+        <Image src={workSection} fill alt="Work Banner" unoptimized className="object-cover" />
       </div>
 
       {/* Intro */}

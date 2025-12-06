@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import history from '@/public/images/history.png'
+import history from '@/public/images/history.jpg'
 import Link from 'next/link'
 
 function OurHistory() {

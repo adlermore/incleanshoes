@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import api from '@/utils/api'
 import { APIURLIMG } from '@/utils/constants'
-import serviceBanner from '@/public/images/serviceVanner.png'
+import serviceBanner from '@/public/images/serviceBanner.png'
 import PageLoader from '@/components/PageLoader/PageLoader'
 
 type Service = {
@@ -59,9 +59,8 @@ export default function Page() {
 
   return (
     <div className="relative pb-20">
-      {/* Banner */}
       <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
-        <Image src={serviceBanner} fill alt="Service Banner" className="object-cover" />
+        <Image src={serviceBanner} unoptimized fill alt="Service Banner" className="object-cover" />
       </div>
 
       {/* Intro */}
