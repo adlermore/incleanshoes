@@ -12,6 +12,7 @@ function AboutUs() {
           src={aboutBanner}
           fill
           alt="Service Banner"
+          unoptimized
           className="object-cover"
         />
       </div>

@@ -11,6 +11,7 @@ function SeondHalf() {
         alt="Premium shoe cleaning service - leather shoe with cleaning brush"
         fill
         className="object-cover"
+        unoptimized
         priority
       />
       <div className="absolute top-0 left-0 w-full h-full bg-[#ffffffa8] shadow-[6px_0px_6.8px_-4px_rgba(0,0,0,0.25)]  md:max-w-1/2 z-0"></div>

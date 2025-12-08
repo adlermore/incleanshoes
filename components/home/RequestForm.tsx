@@ -77,6 +77,7 @@ function RequestForm() {
           alt="Premium shoe cleaning service - leather shoe with cleaning brush"
           fill
           className="object-contain"
+          unoptimized
           priority
         />
       </div>

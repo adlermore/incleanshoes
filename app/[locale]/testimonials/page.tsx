@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
-import reviewsSection from '@/public/images/testimonials.jpg'
+import reviewsSection from '@/public/images/pricesSection.jpg'
 import reviewSection from '@/public/images/reviewSection.png'
 import IconUser from '@/components/Icons/IconUser'
 import PageLoader from '@/components/PageLoader/PageLoader'

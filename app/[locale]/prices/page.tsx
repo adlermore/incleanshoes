@@ -2,7 +2,8 @@
 
 import api from '@/utils/api'
 import React, { useEffect, useState } from 'react'
-import pricesSection from '@/public/images/pricesSection.jpg'
+import pricesSection from '@/public/images/testimonials.jpg'
+// import pricesSection from '@/public/images/pricesSection.jpg'
 import Image from 'next/image'
 import PageLoader from '@/components/PageLoader/PageLoader'
 import clsx from 'clsx'

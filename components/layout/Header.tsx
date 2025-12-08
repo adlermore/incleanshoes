@@ -80,8 +80,8 @@ function Header() {
           <div className='header_logo'>
             <Link href='/' className='z-20 mobile:mx-auto'>
               <Image
-                width={260}
-                height={84}
+                width={265}
+                height={90}
                 src={headerLogo}
                 alt="Logo"
                 priority={true}
